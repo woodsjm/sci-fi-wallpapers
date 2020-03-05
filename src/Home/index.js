@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Card from '../Card'
 import UploadForm from '../UploadForm'
 
 
@@ -9,31 +10,25 @@ class Home extends React.Component {
             message: 'Homepage'
         }
     }
+    
     render(){
         return(
             <div >
                 <div class='page'>
-                  <div class='section menu'>
+                  <div class='top-section menu'>
                     <p>Nav</p>
                   </div>
-                  <div class='section header'>
-                    <h1>{this.state.message}</h1>
-                  </div>
+                  
+                  <Card which='Header' front='front header' back='back' />
+                  
                   <div class='section content'>
                     <UploadForm/>
                   </div>
-                  <div class='section sign-up'>
-                    <p>2</p>
-                  </div>
-                  <div class='section feature-1'>
-                    <p>3</p>
-                  </div>
-                  <div class='section feature-2'>
-                    <p>4</p>
-                  </div>
-                  <div class='section feature-3'>
-                    <p>5</p>
-                  </div>
+
+                  <Card which={3} front='front sign-up' back='back'/>
+                  <Card which={4} front='front feature-1' back='back'/>
+                  <Card which={5} front='front feature-2' back='back'/>
+                  <Card which={6} front='front feature-3' back='back'/>                 
                 </div>
             </div>
         )

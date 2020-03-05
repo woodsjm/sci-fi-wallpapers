@@ -18,11 +18,11 @@ class UploadForm extends React.Component {
     }
 
     onImageDrop = (files) => {
-    this.setState({
-      uploadedFile: files[0]
-    })
+        this.setState({
+          uploadedFile: files[0]
+        })
 
-    this.handleImageUpload(files[0]);
+        this.handleImageUpload(files[0]);
     }
 
     handleImageUpload = (file) => {
@@ -46,6 +46,7 @@ class UploadForm extends React.Component {
     render(){
         return(
             <div>
+
                 <div className="FileUpload">
                   <Dropzone
                       onDrop={this.onImageDrop}
