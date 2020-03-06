@@ -22,7 +22,7 @@ class UploadForm extends React.Component {
           uploadedFile: files[0]
         })
 
-        this.handleImageUpload(files[0]);
+        this.handleImageUpload(files[0])
     }
 
     handleImageUpload = (file) => {
@@ -31,10 +31,7 @@ class UploadForm extends React.Component {
                          .field('file', file);
 
         upload.end((err, response) => {
-          if (err) {
-            console.error(err);
-          }
-
+          if (err) { console.error(err) }
           if (response.body.secure_url !== '') {
             this.setState({
               uploadedFileCloudinaryUrl: response.body.secure_url

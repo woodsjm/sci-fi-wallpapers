@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 import ReactCardFlip from 'react-card-flip'
 
+const cardContainerStyle = {
+    margin: '2% 2%',
+    padding: '1px',
+    width: '100%',
+    height: '300px',
+    display: 'table',
+    fontFamily: '"Karla", sans-serif'
+}
+
+
+
 class Card extends React.Component {
     constructor(props) {
         super(props)
@@ -16,8 +27,8 @@ class Card extends React.Component {
 
     render() {
         return(
-            <div className='invisible'>
-                <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection='horizontal'>
+            
+                <ReactCardFlip containerStyle={cardContainerStyle} isFlipped={this.state.isFlipped} flipDirection='horizontal'>
                     <div className={this.props.front}>  
                         <button onClick={this.handleClick}>FLIP</button>
                     </div>
@@ -26,7 +37,7 @@ class Card extends React.Component {
                         <button onClick={this.handleClick}>FLIP</button>
                     </div>
                 </ReactCardFlip>
-            </div>
+            
         )
     }
 }
