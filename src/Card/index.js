@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import ReactCardFlip from 'react-card-flip'
 
 const cardContainerStyle = {
-    margin: '2% 2%',
-    padding: '1px',
+    boxSizing: 'border-box', 
+    padding: '4%',
     width: '100%',
-    height: '300px',
-    display: 'table',
+    alignItems: 'center',
+    minHeight: '125px',
+    border: '2px solid green',
+    // display: 'table',
     fontFamily: '"Karla", sans-serif'
 }
 
@@ -29,7 +31,7 @@ class Card extends React.Component {
         return(
             
                 <ReactCardFlip containerStyle={cardContainerStyle} isFlipped={this.state.isFlipped} flipDirection='horizontal'>
-                    <div className={this.props.front}>  
+                    <div style={{}}>  
                         <button onClick={this.handleClick}>FLIP</button>
                     </div>
 

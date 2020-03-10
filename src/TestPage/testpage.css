@@ -1,8 +1,7 @@
 body {
     overflow: hidden;
 }
-
-.feed {
+.wrapper {
   box-sizing: border-box;
   position: absolute;
   top: 5%;
@@ -12,25 +11,12 @@ body {
   flex-direction: column;
   /*border: 1px solid blue;*/
 }
-
-.scrollable {
-  flex: 1;
-  overflow: auto;
-  background: black;
-}
-
 .header, .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
   position: absolute;
   box-sizing: border-box;
   height: 5%;
   width: 100%;
-  background: purple;
-  /*border: 1px solid red;*/
+  /*background: silver;*/
 }
 
 .header {
@@ -40,5 +26,8 @@ body {
 .footer {
     bottom: 0;
 }
-
-
+.content {
+  flex: 1;
+  overflow: auto;
+  background: black;
+}
