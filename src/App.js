@@ -12,9 +12,9 @@ function App() {
     <div >
       <Switch>
       
-          <Route exact path='/test' render={(props) => <TestPage {...props}/> }/>
+          <Route exact path='/' render={(props) => <TestPage {...props}/> }/>
         
-          <Route exact path='/' render={(props) => <HomePage {...props}/> }/>
+          <Route exact path='/test' render={(props) => <HomePage {...props}/> }/>
         
       
       </Switch>
