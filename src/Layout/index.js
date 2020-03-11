@@ -1,17 +1,15 @@
 import React from 'react'
-import Header from '../Header'
+
 import Footer from '../Footer'
+import Header from '../Header'
 
 
 const Layout = (props) => {
-    
     return(
        <div >
           <Header />
-            <div className="feed">
-                <section className="scrollable">
-                    {props.children}
-                </section>
+            <div className="content-container">
+                {props.children}
             </div>
           <Footer />
        </div>

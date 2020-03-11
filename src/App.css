@@ -2,21 +2,25 @@ body {
     overflow: hidden;
 }
 
-.feed {
+.content-container {
+  display: flex;
+  flex-direction: column;
+
   box-sizing: border-box;
   position: absolute;
   top: 5%;
   width: 100%;
   height: 90%;
-  display: flex;
-  flex-direction: column;
-  /*border: 1px solid blue;*/
 }
 
-.scrollable {
+.content-flex-box {
   flex: 1;
   overflow: auto;
   background: black;
+}
+
+.content-feed {
+  height: 1000px;
 }
 
 .header, .footer {
@@ -30,7 +34,6 @@ body {
   height: 5%;
   width: 100%;
   background: purple;
-  /*border: 1px solid red;*/
 }
 
 .header {

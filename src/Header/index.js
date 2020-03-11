@@ -5,10 +5,10 @@ const Header = () => {
     return(
         <div>
             <header className="header">
-                <h3>HEADER</h3>
+                <h2>HEADER</h2>
             </header>
         </div>
-        )
+    )
 } 
 
 export default Header

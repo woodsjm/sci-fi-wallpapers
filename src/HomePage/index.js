@@ -1,47 +1,34 @@
 import React, { Component } from 'react'
 
-import Layout from '../Layout'
+import Card from '../Card'
 import Home from './home.js'
+import Layout from '../Layout'
+
+import '../Card/card.css'
 
 
 class HomePage extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            message: 'Homepage'
+            wallpaperThumbnails: ['img1', 'img2', 'img3', 'img4']
         }
     }
     
     render(){
-        
+        const cards = this.state.wallpaperThumbnails.map((ele, idx) => {
+            return <Card index={idx} image={ele} />
+        })
         return(
-            
             <Layout >
-                <Home/>
-            </Layout>
-            
-                
-            
+                <section className="content-flex-box">
+                    <section className="content-feed">
+                        {cards}
+                    </section>
+                </section>
+            </Layout>  
         )
     }
 }
 
 export default HomePage
-
-
-// <div class='page'>
-//                   <div class='top-section menu'>
-//                     <p>Nav</p>
-//                   </div>
-                  
-//                   <Card which='Header' front='front header' back='back' />
-                  
-//                   <div class='section content'>
-//                     <UploadForm/>
-//                   </div>
-
-//                   <Card which={3} front='front sign-up' back='back'/>
-//                   <Card which={4} front='front feature-1' back='back'/>
-//                   <Card which={5} front='front feature-2' back='back'/>
-//                   <Card which={6} front='front feature-3' back='back'/>                 
-//                 </div>

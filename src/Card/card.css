@@ -8,12 +8,14 @@
 }
 
 .card {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  margin: 2% 2% 6% 2%;
 }
 
 .card.is-flipped {

@@ -2,21 +2,21 @@ body {
     overflow: hidden;
 }
 .wrapper {
+  display: flex;
+  flex-direction: column;
+
   box-sizing: border-box;
   position: absolute;
   top: 5%;
   width: 100%;
   height: 90%;
-  display: flex;
-  flex-direction: column;
-  /*border: 1px solid blue;*/
 }
+
 .header, .footer {
   position: absolute;
   box-sizing: border-box;
   height: 5%;
   width: 100%;
-  /*background: silver;*/
 }
 
 .header {
@@ -28,6 +28,7 @@ body {
 }
 .content {
   flex: 1;
+
   overflow: auto;
   background: black;
 }

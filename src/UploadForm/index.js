@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import request from 'superagent'
 
 import Dropzone from 'react-dropzone'
-import request from 'superagent'
 
 const CLOUDINARY_UPLOAD_PRESET = 'uuopwntn'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dlwxbby8o/image/upload'
+
 
 class UploadForm extends React.Component {
     constructor(props) {
