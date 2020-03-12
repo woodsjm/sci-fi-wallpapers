@@ -7,16 +7,18 @@ import TestPage from './TestPage'
 import './App.css';
 
 
-function App() {
+function App(props) {
+  
   return (
-    <div >
+    <div>
+      
       <Switch>
-          <Route exact path='/' render={(props) => <HomePage {...props}/> }/>
+          <Route exact path='/' 
+          render={(props) => <HomePage {...props} />}/>
       </Switch>
+      
     </div>
   )
 }
 
 export default App
-
-// <Route exact path='/' render={(props) => <TestPage {...props}/> }/>
