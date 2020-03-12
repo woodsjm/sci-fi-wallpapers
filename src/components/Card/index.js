@@ -16,6 +16,7 @@ const Card = (props) => {
               <Image publicId={props.publicId} width="75%" heigth="75%"/>
             </div>
             <div className="card__face card__face--back">back</div>
+            
         </div>
       </div>
     )

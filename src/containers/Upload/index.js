@@ -7,7 +7,7 @@ const CLOUDINARY_UPLOAD_PRESET = 'uuopwntn'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dlwxbby8o/image/upload'
 
 
-class UploadForm extends React.Component {
+class Upload extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -78,4 +78,4 @@ class UploadForm extends React.Component {
     }
 }
 
-export default UploadForm
+export default Upload

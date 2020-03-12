@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { Image, Transformation, CloudinaryContext } from 'cloudinary-react'
 import { cloudinary } from 'cloudinary-core'
 
-import Card from '../../Card'
-import Layout from '../../Layout'
+import Card from 'components/Card'
+import MainLayout from 'components/MainLayout'
 
-import '../../Card/card.css'
+import 'components/Card/card.css'
 
 
-class HomePage extends React.Component {
+class Feed extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -23,7 +23,7 @@ class HomePage extends React.Component {
         })
 
         return(
-            <Layout>
+            <MainLayout>
                 <CloudinaryContext cloudName="dlwxbby8o">
                     <section className="content-flex-box">
                        <section className="content-feed">
@@ -31,9 +31,9 @@ class HomePage extends React.Component {
                        </section>
                     </section>
                 </CloudinaryContext> 
-            </Layout> 
+            </MainLayout> 
         )
     }
 }
 
-export default HomePage
+export default Feed

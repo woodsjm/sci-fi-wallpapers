@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Footer from '../Footer'
-import Header from '../Header'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
 
 
-const Layout = (props) => {
+const MainLayout = (props) => {
     return(
        <div >
           <Header />
@@ -16,4 +16,4 @@ const Layout = (props) => {
     )
 }
 
-export default Layout
+export default MainLayout

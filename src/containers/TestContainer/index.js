@@ -1,9 +1,9 @@
 import React from 'react'
 
-import './testpage.css'
+import './testcontainer.css'
 
 
-const TestPage = () => {
+const TestContainer = () => {
     return(
         <div >
           <header class="header">Header</header>
@@ -20,4 +20,4 @@ const TestPage = () => {
     )
 }
 
-export default TestPage
+export default TestContainer
