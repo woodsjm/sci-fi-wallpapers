@@ -7,12 +7,15 @@ import MainLayout from 'components/MainLayout'
 
 import 'components/Card/card.css'
 
+const cloudName = 'dlwxbby8o'
 
 class Feed extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            images: ["test/planets.png", "screenshot.jpg", "rusoeboiq1tla7voerxv.jpg"],
+            images: ["test/planets.jpg", "test/hooverdam.jpg", 
+                     "test/cubes.jpg", "test/europe.jpg", 
+                     "test/miami.jpg"],
             hasLoaded: false 
         }
     }
@@ -24,13 +27,11 @@ class Feed extends React.Component {
 
         return(
             <MainLayout>
-                <CloudinaryContext cloudName="dlwxbby8o">
                     <section className="content-flex-box">
                        <section className="content-feed">
                             {cards}
                        </section>
-                    </section>
-                </CloudinaryContext> 
+                    </section> 
             </MainLayout> 
         )
     }

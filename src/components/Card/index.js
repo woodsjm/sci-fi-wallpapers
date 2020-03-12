@@ -12,8 +12,11 @@ const Card = (props) => {
              onClick={() => changeCardFace(!cardFace)}
              key={props.index} 
         >
-            <div className="card__face card__face--front">
-              <Image publicId={props.publicId} width="75%" heigth="75%"/>
+            <div className="card__face card__face--front" 
+                 style={{backgroundImage: `url("https://res.cloudinary.com/dlwxbby8o/image/upload/v1/${props.publicId}")`,
+                         backgroundRepeat: 'no-repeat',
+                         backgroundSize: '100% 100%'}} >
+              
             </div>
             <div className="card__face card__face--back">back</div>
             
