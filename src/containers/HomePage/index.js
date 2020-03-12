@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Image, Transformation, CloudinaryContext } from 'cloudinary-react'
 import { cloudinary } from 'cloudinary-core'
 
-import Card from '../Card'
-import Layout from '../Layout'
+import Card from '../../Card'
+import Layout from '../../Layout'
 
-import '../Card/card.css'
+import '../../Card/card.css'
 
 
 class HomePage extends React.Component {
