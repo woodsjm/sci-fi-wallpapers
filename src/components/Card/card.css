@@ -2,8 +2,7 @@
   box-sizing: border-box;
   width: 80%;
   height: 200px;
-  padding: 3% 2%;
-  margin: 0 auto;
+  margin: 2% auto 3% auto;
   perspective: 40%;
 }
 
@@ -15,7 +14,6 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  margin: 2% 2% 6% 2%;
 }
 
 .card.is-flipped {
@@ -42,4 +40,13 @@
 .card__face--back {
   background: blue;
   transform: rotateY(180deg);
+}
+
+@media screen and (orientation: landscape) {
+  .scene {
+    width: 40%;
+  }
+
+  .card {
+  }
 }
