@@ -18,4 +18,4 @@ ReactDOM.render(
     document.getElementById('root'));
 
 // Service workers: https://bit.ly/CRA-PWA
-serviceWorker.register();
+serviceWorker.unregister();

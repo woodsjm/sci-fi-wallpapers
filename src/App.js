@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div >
       <Switch>
         <Route exact path='/' render={(props) => <Feed {...props} />}/>
       </Switch>

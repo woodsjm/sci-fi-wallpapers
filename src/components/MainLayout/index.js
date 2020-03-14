@@ -7,11 +7,10 @@ import Header from 'components/Header'
 const MainLayout = (props) => {
     return(
        <div >
-          <Header />
+          <Header/>
             <div className="content-container">
                 {props.children}
             </div>
-          <Footer />
        </div>
     )
 }
