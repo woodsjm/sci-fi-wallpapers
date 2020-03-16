@@ -5,13 +5,15 @@ import { BrowserRouter } from 'react-router-dom'
 import { CloudinaryContext } from 'cloudinary-react'
 
 import App from './App';
+import cloudinarySettings from 'config/cloudinarySettings.js'
 
 import './index.css';
 
+const { cloud_name } = cloudinarySettings
 
 ReactDOM.render(
     <BrowserRouter>
-        <CloudinaryContext cloudName="dlwxbby8o">
+        <CloudinaryContext cloudName={cloud_name}>
             <App/> 
         </CloudinaryContext>
     </BrowserRouter>,

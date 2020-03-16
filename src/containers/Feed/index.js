@@ -4,6 +4,7 @@ import { cloudinary } from 'cloudinary-core'
 
 import Card from 'components/Card'
 import Footer from 'components/Footer'
+import { imageUtil } from 'utils/imageUtil.js'
 import MainLayout from 'components/MainLayout'
 
 import 'components/Card/card.css'
@@ -13,18 +14,24 @@ class Feed extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            0: ["test/planets.jpg", "test/hooverdam.jpg", 
-                     "test/cubes.jpg"],
-            1: ["test/europe.jpg", "test/miami.jpg"],
-            hasLoaded: false,
-            current: 0,
-            last: 1, 
+            // Page numbers for nested image array
+            current: 0, 
         }
+    }
+
+    componentDidMount = async () => {
+        const imageData = imageUtil('getImages')
+        imageData.then((res) => {
+            this.setState({
+                images: res.data, 
+                last: res.data.length - 1
+            })
+        }).catch((err) => {console.log(err)})
     }
 
     handlePagination = (which) => {
         let newPage;
-        const { current, last } = this.state
+        const {current, images, last} = this.state
 
         if (which === 'First' || which === 'Last') {
             newPage = which === 'First' ? 0 : last
@@ -34,19 +41,23 @@ class Feed extends React.Component {
             newPage = current + change
         }
         
-        if (this.state[newPage] !== undefined) {
+        if (images[newPage] !== undefined) {
             this.setState(state => { 
-                return {current: newPage}
+                return { current: newPage }
             })
         }
     }
 
     render(){
-        const { current } = this.state
+        let cards;
+        const { current, images } = this.state
 
-        const cards = this.state[current].map((ele, idx) => {
-            return <Card index={idx} publicId={ele} />
-        })
+        if (images !== undefined) {
+            cards = images[current].map((ele, idx) => {
+                console.log(ele)
+                return <Card index={idx} publicId={ele} />
+            })
+        }
 
         return(
             <MainLayout>
