@@ -20,11 +20,12 @@ class Feed extends React.Component {
     }
 
     componentDidMount = async () => {
-        const imageData = imageUtil('getImages')
+        const isTest = true
+        const imageData = imageUtil('getImages', true)
         imageData.then((res) => {
             this.setState({
-                images: res.data, 
-                last: res.data.length - 1
+                images: res, 
+                last: res.length - 1
             })
         }).catch((err) => {console.log(err)})
     }
@@ -51,7 +52,6 @@ class Feed extends React.Component {
     render(){
         let cards;
         const { current, images } = this.state
-
         if (images !== undefined) {
             cards = images[current].map((ele, idx) => {
                 console.log(ele)
@@ -66,8 +66,10 @@ class Feed extends React.Component {
                             {cards}
                        </section>
                     </section> 
-                    <Footer changePage={this.handlePagination} 
-                            feedPage={current + 1}/>
+                    <Footer 
+                        changePage={this.handlePagination}         
+                        feedPage={current + 1}
+                    />
             </MainLayout> 
         )
     }

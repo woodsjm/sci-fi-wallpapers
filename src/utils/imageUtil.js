@@ -1,6 +1,31 @@
-const imageUtil = async (service) => {  
-     const imageData = await handleService(service)
-     return imageData
+const imageUtil = async (service, testing) => {
+     if (testing === true) {
+        const testarr = [
+            [
+              "test/neon", 
+              "test/vietnam", 
+              "test/geometric"
+            ], 
+            [
+              "test/metropolis", 
+              "test/storm", 
+              "test/hooverdam"
+            ], 
+            [
+              "test/cubes", 
+              "test/europe", 
+              "test/miami"
+            ], 
+            [
+              "test/planets"
+            ]
+        ]
+
+        return testarr 
+     } else {
+        const imageData = await handleService(service)
+        return imageData
+     }
 }
 
 const getImageData = async () => {
