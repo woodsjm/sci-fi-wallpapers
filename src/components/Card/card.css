@@ -1,8 +1,10 @@
 .scene {
   box-sizing: border-box;
-  width: 80%;
-  height: 200px;
-  margin: 2% auto 3% auto;
+  /*width: 80%;*/
+  /*height: 200px;*/
+  width: 60%;
+  height: 30%;
+  margin: 2.5% auto 2.5% auto;
   perspective: 40%;
 }
 
@@ -45,8 +47,21 @@
 @media screen and (orientation: landscape) {
   .scene {
     width: 40%;
+    height: 50%;
   }
 
   .card {
+  }
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+  .scene {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 501px) and (orientation: portrait) {
+  .scene {
+    width: 40%;
   }
 }

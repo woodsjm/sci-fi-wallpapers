@@ -4,17 +4,20 @@ const imageUtil = async (service, testing) => {
             [
               "test/neon", 
               "test/vietnam", 
-              "test/geometric"
+              "test/geometric",
+              "test/metropolis"
             ], 
             [
               "test/metropolis", 
               "test/storm", 
-              "test/hooverdam"
+              "test/hooverdam",
+              "test/cubes"
             ], 
             [
               "test/cubes", 
               "test/europe", 
-              "test/miami"
+              "test/miami",
+
             ], 
             [
               "test/planets"
@@ -24,7 +27,7 @@ const imageUtil = async (service, testing) => {
         return testarr 
      } else {
         const imageData = await handleService(service)
-        return imageData
+        return imageData.data
      }
 }
 
