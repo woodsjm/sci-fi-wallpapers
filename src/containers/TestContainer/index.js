@@ -6,16 +6,18 @@ import './testcontainer.css'
 const TestContainer = () => {
     return(
         <div >
-          <header class="header">Header</header>
+          
 
               <div class="wrapper">
                   <section class="content">
                     <section style={{height: '1000px', border: '2px solid black'}}>
+                      <div style={{backgroundImage: 'url(/assets/syfy_logo.svg)', height: '100px', width: '100px'}}></div>
+                
                     </section>
                   </section>
               </div>
 
-          <footer class="footer">Footer</footer>
+          
         </div>
     )
 }

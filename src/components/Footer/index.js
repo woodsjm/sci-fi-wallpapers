@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 
+import { Icon } from 'react-icons-kit'
+import {
+    arrowRight, 
+    arrowLeft, 
+    chevronsRight, 
+    chevronsLeft
+        } 
+from 'react-icons-kit/feather/'
+
 
 const Footer = (props) => {
     return(
         <footer className="footer">
-            <h3 onClick={props.changePage.bind(null, 'First')}>FIRST</h3>
-            <h3 id="icon" onClick={props.changePage.bind(null, '&larr')}>&larr;</h3>
+            <Icon icon={chevronsLeft} size={24} id="icon" onClick={props.changePage.bind(null, 'First')} />
+            <Icon icon={arrowLeft} size={24} id="icon" onClick={props.changePage.bind(null, '&larr')} />
             <h2>{props.feedPage}</h2>
-            <h3 id="icon" onClick={props.changePage.bind(null, '&rarr')}>&rarr;</h3>
-            <h3 onClick={props.changePage.bind(null, 'Last')}>LAST</h3>
+            <Icon icon={arrowRight} size={24} id="icon" onClick={props.changePage.bind(null, '&rarr')} />
+            <Icon icon={chevronsRight} size={24} id="icon" onClick={props.changePage.bind(null, 'Last')} />
         </footer>
     )
 } 
