@@ -58,8 +58,7 @@ class Feed extends React.Component {
         const { current, images } = this.state
         if (images !== undefined) {
             cards = images[current].map((ele, idx) => {
-                console.log(ele)
-                return <Card index={idx} publicId={ele} />
+                return <Card key={ele.toString()} index={idx} publicId={ele}/>
             })
         }
 

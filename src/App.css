@@ -57,14 +57,15 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
+
     border-top: 0.05em solid rgb(29, 161, 242);
     bottom: 0;
     font-size: 1.25em;
 }
 
 #icon {
-  color: rgb(29, 161, 242);
+  /*color: rgb(29, 161, 242);*/
+  color: rgb(27, 149, 224);
 }
 
 @media screen and (orientation: landscape) {

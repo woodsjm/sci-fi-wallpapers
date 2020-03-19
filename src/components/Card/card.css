@@ -1,8 +1,9 @@
 .scene {
   box-sizing: border-box;
-  margin: 2.5% auto 2.5% auto;
+  margin: 1em auto 1em auto;
   perspective: 40%;
-  height: 30%;
+  /*height: 30%;*/
+  height: 12em;
   width: 60%;
 }
 
@@ -47,7 +48,7 @@
 @media screen and (orientation: landscape) {
   .scene {
     width: 40%;
-    height: 50%;
+    height: 12em;
   }
 
   .card {
