@@ -1,21 +1,19 @@
 .scene {
   box-sizing: border-box;
-  /*width: 80%;*/
-  /*height: 200px;*/
-  width: 60%;
-  height: 30%;
   margin: 2.5% auto 2.5% auto;
   perspective: 40%;
+  height: 30%;
+  width: 60%;
 }
 
 .card {
   box-sizing: border-box;
-  width: 100%;
+  position: relative;
   height: 100%;
+  width: 100%;
   transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
-  position: relative;
 }
 
 .card.is-flipped {
@@ -24,21 +22,21 @@
 
 .card__face {
   border-radius: 0.2em 0.2em 0em 0em;
-  position: absolute;
   border: 0.05em solid rgb(30, 33, 35);
-  width: 100%;
+  position: absolute;
   height: 100%;
-  line-height: 260px;
+  width: 100%;
   color: white;
-  text-align: center;
-  font-weight: bold;
   font-size: 40px;
+  font-weight: bold;
+  line-height: 260px;
+  text-align: center;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .card__face--front {
-  
+  /*FIX: Control for unwanted after effect when touching card face*/ 
 }
 
 .card__face--back {

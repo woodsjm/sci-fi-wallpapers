@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import { Image, Transformation, CloudinaryContext } from 'cloudinary-react'
 import { cloudinary } from 'cloudinary-core'
+import { 
+  CloudinaryContext, 
+  Image, 
+  Transformation 
+} from 'cloudinary-react'
 
 import Card from 'components/Card'
 import Footer from 'components/Footer'

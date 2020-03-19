@@ -3,22 +3,22 @@ import React, { Component } from 'react'
 import { Icon } from 'react-icons-kit'
 import {menu} from 'react-icons-kit/feather/menu'
 
+import './header.css'
+
 
 const Header = () => {
     return(
-        <header className="header">
+        <header className="header testing">
             <div className="nav-container">
                 <div className="nav-item logo">
-                    
-                        <div style={{
-                            backgroundImage: 'url(/assets/syfy_logo_small.svg)',
-                            backgroundPosition: 'center',
-                            backgroundSize: 'cover',
-                            height: '2.8em', width: '2.2em',
-                            alignSelf: 'center'
-                        }}>
-                        </div>
-                    
+                    <div style={{
+                        backgroundImage: 'url(/assets/syfy_logo_small.svg)',
+                        height: '2.8em', width: '2.2em',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        alignSelf: 'center'}}
+                    >
+                    </div>
                 </div>
                 <div className="nav-item heading">
                     <h3 >Feed</h3>  
@@ -33,5 +33,3 @@ const Header = () => {
 } 
 
 export default Header
-
-// backgroundImage: 'url(/assets/syfy_logo.png)'

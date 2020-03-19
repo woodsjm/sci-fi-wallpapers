@@ -4,6 +4,8 @@ import { Image } from 'cloudinary-react'
 import './card.css'
 
 
+const album = 'https://res.cloudinary.com/dlwxbby8o/image/upload'
+
 const Card = (props) => {
   const [cardFace, changeCardFace] = useState(false)
   return(
@@ -12,14 +14,14 @@ const Card = (props) => {
              onClick={() => changeCardFace(!cardFace)}
              key={props.index} 
         >
-            <div className="card__face card__face--front" 
-                 style={{backgroundImage: `url("https://res.cloudinary.com/dlwxbby8o/image/upload/v1/${props.publicId}")`,
-                         backgroundRepeat: 'no-repeat',
-                         backgroundSize: '100% 100%'}} >
-              
-            </div>
-            <div className="card__face card__face--back">back</div>
-            
+          <div className="card__face card__face--front" 
+               style={{
+                backgroundImage: `url("${album}/w_auto,c_scale/v1/${props.publicId}")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '100% 100%'}} 
+          > 
+          </div>
+            <div className="card__face card__face--back">back</div> 
         </div>
       </div>
     )
