@@ -1,10 +1,21 @@
-.menu-slideout {
+#menu-slideout {
   position: absolute;
   top: 0;
   right: 0;
   height: 100vh;
+  transition: transform .3s cubic-bezier(0, 0.52, 0, 1);
+  transition-duration: 0.65s;
+  transition-timing-function: ease-in-out;
   width: 10em;
   border: 1px solid rgb(30, 33, 35);
   background-color: rgba(30, 33, 35, 0.85);
   z-index: 1;
+}
+
+.hide {
+    transform: translate3d(10em, 0, 0);
+}
+
+.show {
+    transform: translate3d(0em, 0, 0);
 }

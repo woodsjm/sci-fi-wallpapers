@@ -34,7 +34,7 @@ const Header = () => {
                         icon={showMenu ? collapsed : hamburger}  
                     />
                 </div>
-                {showMenu ? <Menu /> : null}
+                <Menu visibility={showMenu}/>
             </div>
         </header>
     )

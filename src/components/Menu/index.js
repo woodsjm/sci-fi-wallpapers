@@ -3,9 +3,11 @@ import React from 'react'
 import './menu.css'
 
 
-const Menu = () => {
+const Menu = ({ visibility }) => {
+    let menuState;
+    menuState = visibility ? "show" : "hide"
     return(
-        <div className="menu-slideout">
+        <div id="menu-slideout" className={menuState} >
         </div>
     )
 }
