@@ -9,6 +9,7 @@ import cloudinarySettings from 'config/cloudinarySettings.js'
 
 import './index.css';
 
+
 const { cloud_name } = cloudinarySettings
 
 ReactDOM.render(
