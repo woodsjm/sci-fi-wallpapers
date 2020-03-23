@@ -71,3 +71,13 @@
   margin-right: 0.5em;
   color: rgb(27, 149, 224);
 }
+
+@media screen and (orientation: landscape) {
+  #menu-slideout {
+    width: 15vw;
+  }
+
+  .hide {
+    width: 16;
+  }
+}

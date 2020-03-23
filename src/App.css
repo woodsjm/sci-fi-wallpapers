@@ -64,11 +64,10 @@ body {
 }
 
 #icon {
-  /*color: rgb(29, 161, 242);*/
   color: rgb(27, 149, 224);
 }
 
-@media screen and (orientation: landscape) {
+/*@media screen and (orientation: landscape) {
   .content-feed {
     display: flex;
     flex-wrap: wrap;
@@ -77,6 +76,7 @@ body {
 
   .content-container {
     top: 8%;
+    width: 100%;
   }
 
   .footer {
@@ -87,14 +87,4 @@ body {
   .header {
     height: 8%;
   }
-}
-
-@media screen and (min-width: 501px) and (orientation: portrait) {
-  .content-feed {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;  
-  }
-}
-
-
+}*/

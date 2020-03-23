@@ -2,9 +2,9 @@
   box-sizing: border-box;
   margin: 1em auto 1em auto;
   perspective: 40%;
-  /*height: 30%;*/
-  height: 12em;
-  width: 60%;
+  width: 24em;
+  height: 15em;
+  
 }
 
 .card {
@@ -45,24 +45,42 @@
   transform: rotateY(180deg);
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width: 400px) and (orientation: portrait) {
   .scene {
-    width: 40%;
-    height: 12em;
+    width: 16em;
+    height: 10em;
   }
 
   .card {
   }
 }
 
-@media screen and (max-width: 500px) and (orientation: portrait) {
+@media screen and (min-width: 501px) and (orientation: portrait) {
   .scene {
-    width: 80%;
+    width: 32em;
+    height: 20em;
+  }
+
+  .card {
   }
 }
 
-@media screen and (min-width: 501px) and (orientation: portrait) {
+@media screen and (min-width: 501px) and (orientation: landscape) {
   .scene {
-    width: 40%;
+    width: 32em;
+    height: 20em;
+  }
+
+  .card {
+  }
+}
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+  .scene {
+    width: 48em;
+    height: 30em;
+  }
+
+  .card {
   }
 }
