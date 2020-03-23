@@ -1,12 +1,16 @@
 import React from 'react'
 
-import { helpCircle, home, info } from 'react-icons-kit/feather/'
+import { helpCircle, grid, home, info, user } from 'react-icons-kit/feather/'
 import { Icon } from 'react-icons-kit'
 
 import './menu.css'
 
 
-const routes = [["Home", home], ["About", info], ["FAQ", helpCircle]]
+const routes = [
+    ["Home", home], ["Profile", user],
+    ["Feed", grid], ["About", info], 
+    ["FAQ", helpCircle]
+]
 
 const Menu = ({ visibility }) => {
     let menuState;
@@ -15,7 +19,7 @@ const Menu = ({ visibility }) => {
     const menuItems = routes.map(route => {
         return(
             <li className="menu-item">
-                <Icon id="nav-icon" icon={route[1]} size='1.15em' />
+                <Icon id="nav-icon" icon={route[1]} size='1em' />
                 {route[0]}
             </li>
         )
@@ -24,9 +28,9 @@ const Menu = ({ visibility }) => {
     return(
         <div id="menu-slideout" className={menuState} >
             <section className="menu-container">
-                <ul className="menu-list">
+                <div className="menu-list">
                     {menuItems}
-                </ul>
+                </div>
             </section>
         </div>
     )

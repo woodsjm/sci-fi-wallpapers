@@ -6,9 +6,8 @@
   transition: transform .3s cubic-bezier(0, 0.52, 0, 1);
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
-  width: 40vw;
-  /*border-left: 1px solid rgb(131, 150, 166);*/
-  background-color: rgba(30, 33, 35, 0.97);
+  width: 45vw;
+  background-color: rgba(30, 33, 35, 0.98);
   z-index: 1;
 
   -webkit-box-shadow: -5px 0px 4px 1px rgba(30,33,35,0.5);
@@ -17,7 +16,7 @@
 }
 
 .hide {
-    transform: translate3d(41vw, 0, 0);
+    transform: translate3d(46vw, 0, 0);
 }
 
 .show {
@@ -27,24 +26,30 @@
 .menu-container {
   height: 100%;
   width: 100%;
-  margin: 2.1em 0em;
+  /*border: 1px dashed green;*/
+  margin: 2.1em auto;
   padding-top: 1em;
 }
 
 .menu-list {
-  list-style-type: none;
-  font-size: 1.15em;
+  width: 60%;
+  margin: auto;
+  font-size: 1em;
+  /*border: 1px solid green;*/
 }
+
 /*.menu-item:hover {
   background-color:#5cbf2a;
 }
+
 .menu-item:active {
   position:relative;
   top:1px;
 }*/
 
 .menu-item {
-  margin: 0em 0em 1em 0em;
+  margin: 0.75em auto;
+  list-style-type: none;
 
 }
 
