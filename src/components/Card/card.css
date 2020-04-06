@@ -45,6 +45,10 @@
   transform: rotateY(180deg);
 }
 
+.buttons-back {
+  font-size: 16px;
+}
+
 @media screen and (max-width: 400px) and (orientation: portrait) {
   .scene {
     width: 16em;

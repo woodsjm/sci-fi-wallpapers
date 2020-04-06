@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { cloudinary } from 'cloudinary-core'
+//import { cloudinary } from 'cloudinary-core'
 import { 
   CloudinaryContext, 
   Image, 
@@ -24,6 +24,7 @@ class Feed extends React.Component {
     }
 
     componentDidMount = async () => {
+        //console.log(cloud)
         const isTest = true
         const imageData = imageUtil('getImages', true)
         imageData.then((res) => {
@@ -53,15 +54,16 @@ class Feed extends React.Component {
         }
     }
 
-    render(){
+    render() {
         let cards;
+        const { imgAlbum } = this.props
         const { current, images } = this.state
         if (images !== undefined) {
             cards = images[current].map((ele, idx) => {
-                return <Card key={ele.toString()} index={idx} publicId={ele}/>
+                return <Card key={ele.toString()} index={idx} publicId={ele} imgAlbum={imgAlbum} />
             })
         }
-
+        
         return(
             <MainLayout>
                     <section className="content-flex-box">

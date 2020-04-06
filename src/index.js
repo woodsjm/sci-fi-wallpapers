@@ -15,7 +15,7 @@ const { cloud_name } = cloudinarySettings
 ReactDOM.render(
     <BrowserRouter>
         <CloudinaryContext cloudName={cloud_name}>
-            <App/> 
+            <App cloudSettings={cloudinarySettings}/> 
         </CloudinaryContext>
     </BrowserRouter>,
     document.getElementById('root'));

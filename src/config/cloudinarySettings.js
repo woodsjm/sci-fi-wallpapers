@@ -1,3 +1,3 @@
 export default {
-    cloud_name: 'dlwxbby8o'
+    cloud_name: 'dlwxbby8o',
 }
