@@ -36,24 +36,22 @@ const Card = ({devH, devW, downloadWallpaper, imgAlbum, index, publicId}) => {
         > 
         </div>
           <div className="card__face card__face--back">
-            <p className="back-header">Would you like to Ozark this wallpaper?</p>
-            <div>
-              <label class="toggle">
+            <div className="download-options">
+              <label className="checkbox-container">Ozark this wallpaper?<div style={{display: 'inline', borderLeft: '0.2em dashed rgb(30, 33, 35)'}}/>
                 <input 
                   type="checkbox"  className='checkbox' 
                   onClick={() => changeCheckBox(!checkBox)}
                 />
-                <span class="slider"></span>
               </label>
             </div>
             
             <div className="back-content">
-              <button disabled = { fetching }
+              <button className="back-content-button" disabled = { fetching }
                  onClick={() => download()}
               >
               DOWNLOAD
               </button>
-              <button onClick={() => changeCardFace(!cardFace)}>
+              <button className="back-content-button" onClick={() => changeCardFace(!cardFace)}>
                 FLIP
               </button>
           </div>
