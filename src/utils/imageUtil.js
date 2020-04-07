@@ -2,8 +2,8 @@ const imageUtil = async (service, testing) => {
      if (testing === true) {
         const testarr = [
             [
-              "test/neon", 
-              "test/vietnam", 
+              "test/miami", 
+              "test/hooverdam", 
               "test/geometric",
               "test/metropolis"
             ], 
@@ -16,11 +16,12 @@ const imageUtil = async (service, testing) => {
             [
               "test/cubes", 
               "test/europe", 
-              "test/miami",
+              "test/neon",
 
             ], 
             [
-              "test/planets"
+              "test/planets",
+              "test/vietnam"
             ]
         ]
 

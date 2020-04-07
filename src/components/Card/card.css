@@ -3,8 +3,7 @@
   margin: 1em auto 1em auto;
   perspective: 40%;
   width: 24em;
-  height: 15em;
-  
+  height: 15em; 
 }
 
 .card {
@@ -30,7 +29,7 @@
   color: white;
   font-size: 40px;
   font-weight: bold;
-  line-height: 260px;
+  line-height: 2em;
   text-align: center;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -41,12 +40,27 @@
 }
 
 .card__face--back {
-  background: blue;
+  border: 1px solid rgb(29, 161, 242);
+  display: flexbox;
+  flex-direction: column;
+  font-size: 1em;
+  color: rgb(29, 161, 242);
+  background: rgb(30, 33, 35);
   transform: rotateY(180deg);
 }
 
-.buttons-back {
-  font-size: 16px;
+.back-header {
+  height: 10%;
+  width: 100%;
+}
+
+.back-content {
+  height: 90%;
+}
+
+.checkbox {
+  height: 3em;
+  width: 3em;
 }
 
 @media screen and (max-width: 400px) and (orientation: portrait) {

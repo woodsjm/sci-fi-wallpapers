@@ -19,24 +19,32 @@ class Feed extends React.Component {
         super(props)
         this.state = {
             // Page numbers for nested image array
-            current: 0, 
+            current: 0,
+            devH: this.props.devH,
+            devW: this.props.devW 
         }
     }
 
     componentDidMount = async () => {
         const isTest = true
-        const imageData = imageUtil('getImages', true)
-        imageData.then((res) => {
+        const getImagesRes = await imageUtil('getImages', isTest)
+        const imageUrls = await getImagesRes
+        if (imageUrls) {
             this.setState({
-                images: res, 
-                last: res.length - 1
+                images: imageUrls, 
+                last: imageUrls.length - 1, 
             })
-        }).catch((err) => {console.log(err)})
+        } else {
+            console.log("No imageUrls")
+        }
     }
 
-    downloadWallpaper = async (album, cloudId) => {
+    downloadWallpaper = async (blueFilter, album, cloudId) => {
+        const { devH, devW } = this.state
         const imgName = cloudId.substring(cloudId.lastIndexOf('/') + 1)
-        const fileUrl = `${album}/fl_attachment:${imgName}/v1584398809/${cloudId}`
+        const imgOptions = `c_fill,e_blue:${blueFilter},fl_attachment:${imgName},h_${devH},q_${85},w_${devW}`
+        const fileUrl = `${album}/${imgOptions}/v1584398809/${cloudId}`
+        
         try {
           const downloadImageResponse = await fetch(fileUrl, {
             method: 'GET',
@@ -77,12 +85,13 @@ class Feed extends React.Component {
 
     render() {
         let cards;
-        const { imgAlbum } = this.props
+        const { devH, devW, imgAlbum } = this.props
         const { current, images } = this.state
         if (images !== undefined) {
             cards = images[current].map((ele, idx) => {
                 return <Card downloadWallpaper={this.downloadWallpaper} key={ele.toString()} 
                              index={idx} publicId={ele} imgAlbum={imgAlbum} 
+                             devH={devH} devW={devW}
                         />
             })
         }
