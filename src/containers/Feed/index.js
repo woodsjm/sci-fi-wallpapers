@@ -24,7 +24,6 @@ class Feed extends React.Component {
     }
 
     componentDidMount = async () => {
-        //console.log(cloud)
         const isTest = true
         const imageData = imageUtil('getImages', true)
         imageData.then((res) => {
@@ -33,6 +32,28 @@ class Feed extends React.Component {
                 last: res.length - 1
             })
         }).catch((err) => {console.log(err)})
+    }
+
+    downloadWallpaper = async (album, cloudId) => {
+        const imgName = cloudId.substring(cloudId.lastIndexOf('/') + 1)
+        const fileUrl = `${album}/fl_attachment:${imgName}/v1584398809/${cloudId}`
+        try {
+          const downloadImageResponse = await fetch(fileUrl, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'image/jpeg',
+              'Content-Disposition': 'attachment',
+            }
+          })
+
+          const parsedResponse = await downloadImageResponse
+          if (parsedResponse.status === 200) {
+            return parsedResponse.url
+          } 
+          
+        } catch(err) {
+          console.log(err)
+        }
     }
 
     handlePagination = (which) => {
@@ -60,7 +81,9 @@ class Feed extends React.Component {
         const { current, images } = this.state
         if (images !== undefined) {
             cards = images[current].map((ele, idx) => {
-                return <Card key={ele.toString()} index={idx} publicId={ele} imgAlbum={imgAlbum} />
+                return <Card downloadWallpaper={this.downloadWallpaper} key={ele.toString()} 
+                             index={idx} publicId={ele} imgAlbum={imgAlbum} 
+                        />
             })
         }
         

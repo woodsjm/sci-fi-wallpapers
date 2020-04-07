@@ -4,30 +4,16 @@ import { Image } from 'cloudinary-react'
 import './card.css'
 
 
-const Card = ({imgAlbum, index, publicId}) => {
+const Card = ({downloadWallpaper, imgAlbum, index, publicId}) => {
   let fetching = false
   const [cardFace, changeCardFace] = useState(false)
 
-  const downloadImage = async () => {
+  const download = async () => {
     fetching = true
-    const fileName = publicId.substring(publicId.lastIndexOf('/') + 1)
-    const fileUrl = `${imgAlbum}/fl_attachment:${fileName}/v1584398809/${publicId}`
-
-    try {
-      const downloadImageResponse = await fetch(fileUrl, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'image/jpeg',
-          'Content-Disposition': 'attachment',
-        }
-      })
-
-      const parsedResponse = await downloadImageResponse
-      window.location.href = await parsedResponse.url
-      const responseBody = await parsedResponse.body
+    const downloadHref = await downloadWallpaper(imgAlbum, publicId)
+    if (downloadHref) {
+      window.location.href = downloadHref
       fetching = false
-    } catch(err) {
-      console.log(err)
     }
   }
 
@@ -46,7 +32,7 @@ const Card = ({imgAlbum, index, publicId}) => {
         </div>
           <div className="card__face card__face--back">
             <button disabled = { fetching }
-               onClick={() => downloadImage()}
+               onClick={() => download()}
             >
             DOWNLOAD
             </button>
