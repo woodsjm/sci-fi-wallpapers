@@ -1,9 +1,12 @@
 .scene {
+  left: 0;
   box-sizing: border-box;
   margin: 1em auto 1em auto;
   perspective: 40%;
   width: 24em;
   height: 15em; 
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(0%, 0%);
 }
 
 .card {
@@ -75,8 +78,12 @@
 }
 
 @supports not (-webkit-touch-callout: none) {
-   .back-content-button {
+  .back-content-button {
       background-color: rgb(29, 161, 242);
+  }
+
+  .scene {
+    -webkit-transform: translate(1.180%, 0%);
   }
 }
 
