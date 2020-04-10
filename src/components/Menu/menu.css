@@ -1,12 +1,13 @@
 #menu-slideout {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  transition: transform .3s cubic-bezier(0, 0.52, 0, 1);
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
-  width: 45vw;
+  /*transition: transform .3s cubic-bezier(0, 0.52, 0, 1);*/
+  /*transition: 0.1s;*/
+  /*transition-duration: 0.5s;*/
+  /*transition-timing-function: ease;*/
+  /*width: 45vw;*/
   background-color: rgba(30, 33, 35, 0.98);
   z-index: 1;
 
@@ -15,13 +16,13 @@
   box-shadow: -5px 0px 4px 1px rgba(30,33,35,0.5);
 }
 
-.hide {
+/*.hide {
     transform: translate3d(46vw, 0, 0);
 }
 
 .show {
     transform: translate3d(0vw, 0, 0);
-}
+}*/
 
 .menu-container {
   height: 100%;

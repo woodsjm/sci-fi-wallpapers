@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-//import { cloudinary } from 'cloudinary-core'
-import { 
-  CloudinaryContext, 
-  Image, 
-  Transformation 
-} from 'cloudinary-react'
+import { CloudinaryContext, Image, Transformation } from 'cloudinary-react'
 import { Modal } from 'semantic-ui-react'
 
 import CardList from 'components/CardList'
@@ -12,7 +7,7 @@ import DownloadModal from 'components/DownloadModal'
 import Footer from 'components/Footer'
 import { imageUtil } from 'utils/imageUtil.js'
 import MainLayout from 'components/MainLayout'
-
+import Menu from 'components/Menu'
 
 import 'components/CardList/card.css'
 
@@ -21,11 +16,10 @@ class Feed extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            // Page numbers for nested image array
+            // FIX: Refactor current to currentPage
             current: 0,
             devH: this.props.devH,
             devW: this.props.devW,
-            modalTrigger: null,
             showModal: false
         }
     }
@@ -74,6 +68,7 @@ class Feed extends React.Component {
         this.setState({showModal: !this.state.showModal})
     }
 
+    // FIX: Refactor which
     handlePagination = (which) => {
         let newPage;
         const {current, images, last} = this.state
@@ -98,10 +93,12 @@ class Feed extends React.Component {
         const { devH, devW, imgAlbum } = this.props
         const { current, images } = this.state
         if (images !== undefined) {
-            cardList = <CardList current={current} devH={devH} devW={devW} downloadWallpaper={this.downloadWallpaper}
-                          handleModal={this.handleModal.bind(this)} images={images} imgAlbum={imgAlbum} 
-                    />
-           
+            cardList = <CardList 
+                        current={current} devH={devH} devW={devW} 
+                        downloadWallpaper={this.downloadWallpaper}
+                        handleModal={this.handleModal.bind(this)} 
+                        images={images} imgAlbum={imgAlbum} 
+                        />  
         }
         
         return(

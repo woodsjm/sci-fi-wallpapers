@@ -12,9 +12,8 @@ const routes = [
     ["FAQ", helpCircle]
 ]
 
-const Menu = ({ visibility }) => {
+const Menu = ({ isVisible }) => {
     let menuState;
-    menuState = visibility ? "show" : "hide"
 
     const menuItems = routes.map(route => {
         return(
@@ -26,7 +25,7 @@ const Menu = ({ visibility }) => {
     })
 
     return(
-        <div id="menu-slideout" className={menuState} >
+        <div id="menu-slideout"  style={{width: `${isVisible ? '50%' : '0'}`}} >
             <section className="menu-container">
                 <div className="menu-list">
                     {menuItems}

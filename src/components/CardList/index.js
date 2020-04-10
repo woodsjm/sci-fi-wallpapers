@@ -9,6 +9,7 @@ import './card.css'
 
 const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, imgAlbum}) => {
   let fetching = false
+  // FIX: Refactor to remove filterChecked
   const download = async (filterChecked, publicId) => {
     fetching = true
     const downloadHref = await downloadWallpaper(filterChecked ? 70 : 0, imgAlbum, publicId)
@@ -19,6 +20,7 @@ const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, 
   }
 
   const cards = images[current].map((ele, idx) => {
+    // FIX: Remove unneeded variables now that cards don't flip
     const cardFace = false
     const checkBox = false
     return (

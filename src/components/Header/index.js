@@ -10,10 +10,12 @@ import './header.css'
 const Header = () => {
     let hamburger = menu, collapsed = x
     const [showMenu, setMenu] = useState(false) 
+
     return(
         <header className="header">
+            <Menu isVisible={showMenu}/>
             <div className="nav-container">
-                <div className="nav-item logo" >
+                <div className="nav-item logo">
                     <div style={{
                         backgroundImage: 'url(/assets/syfy_logo_small.svg)',
                         height: '2.8em', width: '2.2em',
@@ -26,14 +28,11 @@ const Header = () => {
                 <div className="nav-item heading">
                     <h3 >Feed</h3>  
                 </div>
-                <div className="nav-item menu" 
-                     onClick={() => setMenu(!showMenu)}
-                >
+                <div className="nav-item menu" onClick={() => setMenu(!showMenu)}>
                     <Icon 
                         size='1.4em' id="icon"
                         icon={showMenu ? collapsed : hamburger}  
                     />
-                <Menu visibility={showMenu}/>
                 </div>
             </div>
         </header>
