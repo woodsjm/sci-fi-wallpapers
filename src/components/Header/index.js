@@ -33,8 +33,8 @@ const Header = () => {
                         size='1.4em' id="icon"
                         icon={showMenu ? collapsed : hamburger}  
                     />
-                </div>
                 <Menu visibility={showMenu}/>
+                </div>
             </div>
         </header>
     )

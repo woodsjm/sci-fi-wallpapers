@@ -31,6 +31,11 @@ body {
   overflow: auto;
 }
 
+.download-modal {
+  
+  border: 1px solid green;
+}
+
 .header, .footer {
   align-items: center;
 

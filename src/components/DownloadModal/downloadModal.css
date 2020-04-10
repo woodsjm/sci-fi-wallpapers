@@ -1,0 +1,28 @@
+.modal-container {
+    display: flex!important;
+    flex-direction: column!important;
+    border: 3px solid green!important;
+    left: 2.5vw!important;
+    top: 1vh!important;
+    margin-right: 2.5vw!important;
+    width: 95vw!important;
+    max-height: 90vh!important;
+    position: absolute!important;
+}
+
+.modal-header {
+    background-color: #F9FAFB!important;
+    min-height: 10%!important;
+}
+
+.modal-content {
+    /*border-bottom: 1em;*/
+}
+
+
+.modal-actions {
+    min-height: 12.5%;
+    border-bottom: 0.5em;
+    padding-top: 0.5em;
+
+}

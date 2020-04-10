@@ -5,13 +5,16 @@ import {
   Image, 
   Transformation 
 } from 'cloudinary-react'
+import { Modal } from 'semantic-ui-react'
 
-import Card from 'components/Card'
+import CardList from 'components/CardList'
+import DownloadModal from 'components/DownloadModal'
 import Footer from 'components/Footer'
 import { imageUtil } from 'utils/imageUtil.js'
 import MainLayout from 'components/MainLayout'
 
-import 'components/Card/card.css'
+
+import 'components/CardList/card.css'
 
 
 class Feed extends React.Component {
@@ -21,7 +24,9 @@ class Feed extends React.Component {
             // Page numbers for nested image array
             current: 0,
             devH: this.props.devH,
-            devW: this.props.devW 
+            devW: this.props.devW,
+            modalTrigger: null,
+            showModal: false
         }
     }
 
@@ -64,6 +69,11 @@ class Feed extends React.Component {
         }
     }
 
+    handleModal = () => {
+        console.log("hitting modal")
+        this.setState({showModal: !this.state.showModal})
+    }
+
     handlePagination = (which) => {
         let newPage;
         const {current, images, last} = this.state
@@ -84,23 +94,26 @@ class Feed extends React.Component {
     }
 
     render() {
-        let cards;
+        let cardList;
         const { devH, devW, imgAlbum } = this.props
         const { current, images } = this.state
         if (images !== undefined) {
-            cards = images[current].map((ele, idx) => {
-                return <Card downloadWallpaper={this.downloadWallpaper} key={ele.toString()} 
-                             index={idx} publicId={ele} imgAlbum={imgAlbum} 
-                             devH={devH} devW={devW}
-                        />
-            })
+            cardList = <CardList current={current} devH={devH} devW={devW} downloadWallpaper={this.downloadWallpaper}
+                          handleModal={this.handleModal.bind(this)} images={images} imgAlbum={imgAlbum} 
+                    />
+           
         }
         
         return(
             <MainLayout>
                     <section className="content-flex-box">
                        <section className="content-feed">
-                            {cards}
+                            {cardList}
+                            <DownloadModal
+                                className="download-modal"
+                                showModal={this.state.showModal} 
+                                handleModal={this.handleModal.bind(this)}  
+                            />
                        </section>
                     </section> 
                     <Footer 
