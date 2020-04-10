@@ -6,12 +6,12 @@ import './downloadModal.css'
 
 const DownloadModal = ({ handleModal, showModal }) => (
   <Modal className="modal-container" open={showModal} dimmer='default'>
-  <Modal.Header className="modal-header">Modal Header</Modal.Header>
+  <Modal.Header className="modal-header"><p className="modal-header-content">Modal Header</p></Modal.Header>
     <Modal.Content scrolling className="modal-content">
       <Modal.Description>
         
         <p>
-          This is an example of expanded content that will cause the modal's
+          This is an of expanded content that will cause the modal's
           dimmer to scroll
         </p>
 
@@ -20,13 +20,19 @@ const DownloadModal = ({ handleModal, showModal }) => (
         </p>
 
        <p>In as name to here them deny wise this. As rapid woody my he me which. Men but they fail shew just wish next put. Led all visitor musical calling nor her. Within coming figure sex things are. Pretended concluded did repulsive education smallness yet yet described. Had country man his pressed shewing. No gate dare rose he. Eyes year if miss he as upon.</p>
+
+       <p>In as name to here them deny wise this. As rapid woody my he me which. Men but they fail shew just wish next put. Led all visitor musical calling nor her. Within coming figure sex things are. Pretended concluded did repulsive education smallness yet yet described. Had country man his pressed shewing. No gate dare rose he. Eyes year if miss he as upon.</p>
+
+       <p>In as name to here them deny wise this. As rapid woody my he me which. Men but they fail shew just wish next put. Led all visitor musical calling nor her. Within coming figure sex things are. Pretended concluded did repulsive education smallness yet yet described. Had country man his pressed shewing. No gate dare rose he. Eyes year if miss he as upon.</p>
+
+
       </Modal.Description>
     </Modal.Content>
-    <div className="modal-actions">
-      <button primary onClick={handleModal}>
+    <Modal.Actions >
+      <Button primary onClick={handleModal}>
         Proceed <Icon name='chevron right' />
-      </button>
-    </div>
+      </Button>
+    </Modal.Actions>
   </Modal>
 )
 
