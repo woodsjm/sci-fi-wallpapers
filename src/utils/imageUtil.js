@@ -5,6 +5,10 @@ const imageUtil = async (service, testing) => {
               "test/miami", 
               "test/hooverdam", 
               "test/geometric",
+              "test/metropolis",
+              "test/miami", 
+              "test/hooverdam", 
+              "test/geometric",
               "test/metropolis"
             ], 
             [

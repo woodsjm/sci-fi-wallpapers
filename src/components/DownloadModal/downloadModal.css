@@ -1,6 +1,7 @@
 .modal-container {
     display: flex!important;
     flex-direction: column!important;
+    
     margin: auto auto;
     top: 0em!important;
     max-width: 95vw!important;
@@ -26,7 +27,6 @@
 .modal-content {
     margin-top: 2em!important;
 }
-
 
 .modal-actions {
     z-index: 1001!important;
