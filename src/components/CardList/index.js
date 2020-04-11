@@ -8,7 +8,7 @@ import { Button, Divider } from 'semantic-ui-react'
 import './card.css'
 
 
-const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, imgAlbum}) => {
+const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => {
   let fetching = false
   // FIX: Refactor to remove filterChecked
   const download = async (publicId) => {
@@ -49,7 +49,7 @@ const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, 
             <section className="card-footer-segment">
               <Button 
                 size='mini' 
-                onClick={handleModal}
+                onClick={openModal}
                 id="card-footer-os-button"
                 className="card-footer-button"  
               >

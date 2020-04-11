@@ -4,7 +4,7 @@ import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
 import './downloadModal.css'
 
 
-const DownloadModal = ({ handleModal, showModal }) => (
+const DownloadModal = ({ closeModal, handleOptionsSubmit, showModal }) => (
   <Modal className="modal-container" open={showModal} dimmer='default'>
     <Header className="modal-header">Download Options</Header>
     <Modal.Content scrolling className="modal-content">
@@ -21,8 +21,11 @@ const DownloadModal = ({ handleModal, showModal }) => (
       </Modal.Description>
     </Modal.Content>
     <Modal.Actions >
-      <Button primary onClick={handleModal}>
-        Close <Icon name='chevron right' />
+      <Button primary onClick={handleOptionsSubmit}>
+        Submit <Icon/>
+      </Button>
+      <Button primary onClick={closeModal}>
+        Close <Icon/>
       </Button>
     </Modal.Actions>
   </Modal>

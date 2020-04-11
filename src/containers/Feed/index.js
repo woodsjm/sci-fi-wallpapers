@@ -62,8 +62,16 @@ class Feed extends React.Component {
         }
     }
 
-    handleModal = () => {
-        console.log("hitting modal")
+    handleOptionsSubmit = () => {
+        console.log("Inside handleDownloadOptions")
+        this.closeModal()
+    }
+
+    closeModal = () => {
+        this.setState({showModal: !this.state.showModal})
+    }
+
+    openModal = () => {
         this.setState({showModal: !this.state.showModal})
     }
 
@@ -89,13 +97,13 @@ class Feed extends React.Component {
 
     render() {
         let cardList;
-        const { devH, devW, imgAlbum } = this.props
+        const { imgAlbum } = this.props
         const { current, images } = this.state
         if (images !== undefined) {
             cardList = <CardList 
-                        current={current} devH={devH} devW={devW} 
+                        current={current} 
                         downloadWallpaper={this.downloadWallpaper}
-                        handleModal={this.handleModal.bind(this)} 
+                        openModal={this.openModal.bind(this)} 
                         images={images} imgAlbum={imgAlbum} 
                         />  
         }
@@ -107,8 +115,10 @@ class Feed extends React.Component {
                             {cardList}
                             <DownloadModal
                                 className="download-modal"
+                                closeModal={this.closeModal.bind(this)}
+                                handleOptionsSubmit={this.handleOptionsSubmit.bind(this)}
                                 showModal={this.state.showModal} 
-                                handleModal={this.handleModal.bind(this)}  
+                                 
                             />
                        </section>
                     </section> 
