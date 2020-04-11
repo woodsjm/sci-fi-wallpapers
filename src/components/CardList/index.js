@@ -3,6 +3,7 @@ import { Image } from 'cloudinary-react'
 
 import { Icon } from 'react-icons-kit'
 import { download } from 'react-icons-kit/feather/'
+import { Button, Divider } from 'semantic-ui-react'
 
 import './card.css'
 
@@ -34,6 +35,15 @@ const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, 
                 backgroundSize: '100% 100%'}} 
           > 
           </div>
+          <Divider fitted/>
+          <section className="card-footer">
+            <section className="card-footer-segment">
+              <Button size='mini' className="card-footer-button" id="card-footer-dl-button">Download</Button>
+            </section>
+            <section className="card-footer-segment">
+              <Button size='mini' className="card-footer-button" id="card-footer-os-button">Options</Button>
+            </section>
+          </section>
         </div>
       </div>
     )

@@ -7,22 +7,59 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 0.5em 0.5em 0em 0em;
   box-sizing: border-box;
   position: relative;
   height: 100%;
   width: 100%;
   cursor: pointer;
+  
 }
 
 .card__face {
-  border-radius: 0.2em 0.2em 0em 0em;
   border: 0.05em solid rgb(30, 33, 35);
-  position: absolute;
-  height: 100%;
+  border-radius: 0.5em 0.5em 0em 0em;
+  height: 80%;
   width: 100%;
   font-size: 1em;
   color: rgb(29, 161, 242);
   text-align: center;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+
+  background: rgb(30, 33, 35);
+  width: 100%;
+  height: 20%;
+}
+
+.card-footer-segment {
+  display: flex;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+}
+
+.card-footer-button {
+  background-color: rgb(27, 149, 224)!important;
+  color: #F5F5F5!important;
+  height: 80%!important;
+  width: 50%!important;
+  margin: 0 auto!important;
+}
+
+#card-footer-dl-button {
+  margin-left: 1em!important;
+}
+
+#card-footer-os-button {
+  margin-right: 1em!important;
 }
 
 .download-options {
@@ -40,7 +77,13 @@
     width: 20em;
     height: 12.5em;
   }
+
+  .card-footer-button {
+    width: 8em!important;
+  }
 }
+
+
 
 @media screen and (min-width: 501px) and (orientation: portrait) {
   .scene {
