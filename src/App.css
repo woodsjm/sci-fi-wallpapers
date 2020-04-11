@@ -76,6 +76,7 @@ body {
   width: 100%;
   color: rgba(255, 255, 255, 0.90);
   background: rgb(30, 33, 35);
+  text-align: center;
 }
 
 .header {
@@ -92,12 +93,24 @@ body {
 .footer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 
     border-top: 0.05em solid rgb(29, 161, 242);
     bottom: 0;
     font-size: 1.25em;
     position: fixed;
+}
+
+.footer-page-number {
+  border-bottom: 1em;
+}
+
+.footer-arrow {
+  margin: 0 1em;
+}
+
+.footer-chevron {
+  margin: 0 0.5em;
 }
 
 #footer-icon {
