@@ -47,7 +47,7 @@
 }
 
 .card-footer-button {
-  background-color: rgb(27, 149, 224)!important;
+  background: rgb(27, 149, 224)!important;
   color: #F5F5F5!important;
   height: 80%!important;
   width: 50%!important;

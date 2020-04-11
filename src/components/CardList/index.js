@@ -11,9 +11,9 @@ import './card.css'
 const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, imgAlbum}) => {
   let fetching = false
   // FIX: Refactor to remove filterChecked
-  const download = async (filterChecked, publicId) => {
+  const download = async (publicId) => {
     fetching = true
-    const downloadHref = await downloadWallpaper(filterChecked ? 70 : 0, imgAlbum, publicId)
+    const downloadHref = await downloadWallpaper(0, imgAlbum, publicId)
     if (downloadHref) {
       window.location.href = downloadHref
       fetching = false
@@ -27,8 +27,7 @@ const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, 
     return (
         <div className="scene" key={ele.toString()}>
         <div className={cardFace === false ? "card" : "card is-flipped"}>
-          <div className="card__face card__face--front"
-               onClick={handleModal} 
+          <div className="card__face card__face--front" 
                style={{
                 backgroundImage: `url("${imgAlbum}/w_auto,c_scale/v1/${ele}")`,
                 backgroundRepeat: 'no-repeat',
@@ -38,10 +37,24 @@ const CardList = ({current, devH, devW, downloadWallpaper, handleModal, images, 
           <Divider fitted/>
           <section className="card-footer">
             <section className="card-footer-segment">
-              <Button size='mini' className="card-footer-button" id="card-footer-dl-button">Download</Button>
+              <Button 
+                size='mini'
+                onClick={() => download(ele)} 
+                id="card-footer-dl-button"
+                className="card-footer-button" 
+              >
+                Download
+              </Button>
             </section>
             <section className="card-footer-segment">
-              <Button size='mini' className="card-footer-button" id="card-footer-os-button">Options</Button>
+              <Button 
+                size='mini' 
+                onClick={handleModal}
+                id="card-footer-os-button"
+                className="card-footer-button"  
+              >
+                Options
+              </Button>
             </section>
           </section>
         </div>

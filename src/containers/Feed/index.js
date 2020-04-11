@@ -43,7 +43,6 @@ class Feed extends React.Component {
         const imgName = cloudId.substring(cloudId.lastIndexOf('/') + 1)
         const imgOptions = `c_fill,e_blue:${blueFilter},fl_attachment:${imgName},h_${devH},q_${85},w_${devW}`
         const fileUrl = `${album}/${imgOptions}/v1584398809/${cloudId}`
-        
         try {
           const downloadImageResponse = await fetch(fileUrl, {
             method: 'GET',
