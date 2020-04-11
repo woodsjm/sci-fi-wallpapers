@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import cloudinary from 'cloudinary-core'
 import { CloudinaryContext, Image, Transformation } from 'cloudinary-react'
 import { Modal } from 'semantic-ui-react'
 
@@ -63,7 +64,22 @@ class Feed extends React.Component {
     }
 
     handleOptionsSubmit = () => {
-        console.log("Inside handleDownloadOptions")
+        const cloudName = this.props.cloudName
+        const cl = cloudinary.Cloudinary.new({cloud_name: cloudName});
+
+        const imgUrl = cl.url('test/miami', 
+            {transformation: 
+                [
+                    {
+                        effect: "blue:50", 
+                        width: 300, 
+                        height: 300, 
+                        crop: "crop"
+                    }
+                ]
+            }
+        )
+        console.log(imgUrl)
         this.closeModal()
     }
 
@@ -97,8 +113,9 @@ class Feed extends React.Component {
 
     render() {
         let cardList;
-        const { imgAlbum } = this.props
-        const { current, images } = this.state
+        const imgAlbum = this.props.imgAlbum
+        const current = this.state.current
+        const images = this.state.images
         if (images !== undefined) {
             cardList = <CardList 
                         current={current} 

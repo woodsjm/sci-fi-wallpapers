@@ -25,7 +25,7 @@ const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => 
     const cardFace = false
     const checkBox = false
     return (
-        <div className="scene" key={ele.toString()}>
+        <div className="scene" key={idx}>
         <div className={cardFace === false ? "card" : "card is-flipped"}>
           <div className="card__face card__face--front" 
                style={{

@@ -13,11 +13,9 @@ const routes = [
 ]
 
 const Menu = ({ isVisible }) => {
-    let menuState;
-
-    const menuItems = routes.map(route => {
+    const menuItems = routes.map((route, idx) => {
         return(
-            <li className="menu-item">
+            <li key={idx} className="menu-item">
                 <Icon id="nav-icon" icon={route[1]} size='1em' />
                 {route[0]}
             </li>
