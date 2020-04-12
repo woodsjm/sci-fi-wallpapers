@@ -49,7 +49,7 @@ const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => 
             <section className="card-footer-segment">
               <Button 
                 size='mini' 
-                onClick={openModal}
+                onClick={openModal.bind(null, idx)}
                 id="card-footer-os-button"
                 className="card-footer-button"  
               >

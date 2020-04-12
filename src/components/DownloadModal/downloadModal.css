@@ -28,6 +28,24 @@
     margin-top: 2em!important;
 }
 
+.modal-description-section {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.selection-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid green;
+}
+
+.selection-item-box {
+    width: 100px;
+    height: 100px;
+}
+
 .modal-actions {
     z-index: 1001!important;
     border-bottom: 0.5em;

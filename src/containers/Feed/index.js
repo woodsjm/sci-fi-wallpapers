@@ -21,7 +21,8 @@ class Feed extends React.Component {
             current: 0,
             devH: this.props.devH,
             devW: this.props.devW,
-            showModal: false
+            showModal: false,
+            targetWallpaper: null
         }
     }
 
@@ -63,33 +64,40 @@ class Feed extends React.Component {
         }
     }
 
-    handleOptionsSubmit = () => {
+    handleOptionsSubmit = (sourceArtwork) => {
         const cloudName = this.props.cloudName
         const cl = cloudinary.Cloudinary.new({cloud_name: cloudName});
-
-        const imgUrl = cl.url('test/miami', 
+        const clLayer = new cloudinary.Layer().publicId(sourceArtwork)
+        const imgUrl = cl.url(this.state.targetWallpaper, 
             {transformation: 
                 [
+                    { 
+                        width: this.state.devW, 
+                        height: this.state.devH, 
+                        crop: "fill"
+                    },
                     {
-                        effect: "blue:50", 
-                        width: 300, 
-                        height: 300, 
-                        crop: "crop"
+                        effect: "style_transfer",
+                        overlay: clLayer
                     }
                 ]
             }
         )
-        console.log(imgUrl)
+
         this.closeModal()
+        if (imgUrl) return imgUrl
     }
 
     closeModal = () => {
         this.setState({showModal: !this.state.showModal})
     }
 
-    openModal = () => {
-        this.setState({showModal: !this.state.showModal})
-    }
+    openModal = (id) => {
+        this.setState({  
+            showModal: !this.state.showModal,
+            targetWallpaper: this.state.images[this.state.current][id]
+        })
+    }  
 
     // FIX: Refactor which
     handlePagination = (which) => {
@@ -120,7 +128,7 @@ class Feed extends React.Component {
             cardList = <CardList 
                         current={current} 
                         downloadWallpaper={this.downloadWallpaper}
-                        openModal={this.openModal.bind(this)} 
+                        openModal={this.openModal} 
                         images={images} imgAlbum={imgAlbum} 
                         />  
         }
