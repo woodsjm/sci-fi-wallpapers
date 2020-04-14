@@ -1,4 +1,4 @@
-const imageUtil = async (service, testing) => {
+const imageUtil = async (service, testing, target, source) => {
      if (testing === true) {
         const testarr = [
             [
@@ -31,9 +31,30 @@ const imageUtil = async (service, testing) => {
 
         return testarr 
      } else {
-        const imageData = await handleService(service)
-        return imageData.data
+        const imageData = await imageServices[service](target, source)
+        return imageData
      }
+}
+
+const getAttachmentUrl = async (target, source) => {
+  console.log(target)
+  console.log(source)
+  try {
+    const downloadImageResponse = await fetch('http://localhost:8000/api/download', {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({source: source, target: target}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const parsedResponse = await downloadImageResponse.json();
+    if (parsedResponse.status.code == 200) {
+      return parsedResponse.data
+    }
+  } catch(err) {
+    console.log(err)
+  }
 }
 
 const getImageData = async () => {
@@ -51,11 +72,11 @@ const getImageData = async () => {
     }
 }
 
-const handleService = (service) => {
-    const fetchResult = imageServices[service]()
-    return fetchResult
-}
+// const handleService = (service) => {
+//     const fetchResult = imageServices[service]()
+//     return fetchResult
+// }
 
-const imageServices = {getImages: getImageData}
+const imageServices = {getImages: getImageData, getAttachmentUrl: getAttachmentUrl}
 
 export { imageUtil }

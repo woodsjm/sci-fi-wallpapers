@@ -17,8 +17,8 @@ class DownloadModal extends React.Component {
       this.handleChange = this.handleChange.bind(this)
   }
 
-  handleSubmit = () => {
-    this.props.handleOptionsSubmit(this.state.selectedMasterpiece)
+  handleSubmit = async () => {
+    const response = await this.props.handleOptionsSubmit(this.state.selectedMasterpiece)
   }
 
   handleChange = (e, key) => {
@@ -29,8 +29,8 @@ class DownloadModal extends React.Component {
 
   render() {
     const { closeModal, showModal} = this.props
-    const baseUrl = 'https://res.cloudinary.com/dlwxbby8o/image/upload/w_auto,c_scale/v1586647501/masterpieces/'
-
+    const baseUrl = 'https://res.cloudinary.com/dlwxbby8o/image/upload/w_auto,c_scale/v1586805907'
+    
     // const dropdownOptions = [
     //       {key: 1, text: "American Gothic", value: "american_gothic", onClick: () => this.handleChange(0)},
     //       {key: 2, text: "Mona Lisa", value: "mona_lisa", onClick: () => this.handleChange(1)}
@@ -53,7 +53,7 @@ class DownloadModal extends React.Component {
                 </div>
                 <div className="selection-item-box" style={{
                   width: '100px',
-                  backgroundImage: `url("${baseUrl}/${this.state.selectedMasterpiece}.jpg")`,
+                  backgroundImage: `url("${baseUrl}/${this.state.selectedMasterpiece}")`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: '100% 100%'}}>
                 </div>

@@ -41,55 +41,14 @@ class Feed extends React.Component {
     }
 
     downloadWallpaper = async (fileUrl) => {
-        // const { devH, devW } = this.state
-        // const imgName = cloudId.substring(cloudId.lastIndexOf('/') + 1)
-        // const imgOptions = `c_fill,e_blue:${blueFilter},fl_attachment:${imgName},h_${devH},q_${85},w_${devW}`
-        // const fileUrl = `${album}/${imgOptions}/v1584398809/${cloudId}`
-        try {
-          const downloadImageResponse = await fetch(fileUrl, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'image/jpeg',
-              'Content-Disposition': 'attachment',
-            }
-          })
-
-          const parsedResponse = await downloadImageResponse
-          if (parsedResponse.status === 200) {
-            return parsedResponse.url
-          } 
-          
-        } catch(err) {
-          console.log(err)
-        }
+        const attachmentUrl = await imageUtil('getAttachmentUrl', false, 'test/miami.jpg', 'mona_lisa')
+        console.log(attachmentUrl)
+        return attachmentUrl
     }
 
-    handleOptionsSubmit = (sourceArtwork) => {
-        const wallpaper = this.state.targetWallpaper
-        const imgName = wallpaper.substring(wallpaper.lastIndexOf('/') + 1)
-        const cloudName = this.props.cloudName
-        const cl = cloudinary.Cloudinary.new({cloud_name: cloudName});
-        const clLayer = new cloudinary.Layer().publicId(sourceArtwork)
-        const imgUrl = cl.url(wallpaper, 
-            {transformation: 
-                [
-                    { 
-                        width: this.state.devW, 
-                        height: this.state.devH, 
-                        crop: "fill",
-                    },
-                    {
-                        effect: "style_transfer",
-                        overlay: clLayer
-                    }
-                ]
-            }
-        )
-
-        this.downloadWallpaper(imgUrl)
-        
-        this.closeModal()
-        return
+    handleOptionsSubmit = async (sourceArtwork) => {
+        const response = await this.downloadWallpaper();
+        if (response) this.closeModal()
     }
 
     closeModal = () => {

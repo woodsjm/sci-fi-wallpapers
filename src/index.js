@@ -13,9 +13,12 @@ import './index.css';
 
 const { cloud_name } = cloudinarySettings
 
+const key = '969719291687234'
+const secret = 'a7fYVUtJs3Eu8bVe54qVSuUKni0'
+
 ReactDOM.render(
     <BrowserRouter>
-        <CloudinaryContext cloudName={cloud_name}>
+        <CloudinaryContext cloudName={cloud_name} cloudKey={key} cloudSecret={secret}>
             <App cloudSettings={cloudinarySettings}/> 
         </CloudinaryContext>
     </BrowserRouter>,

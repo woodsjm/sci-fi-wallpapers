@@ -11,13 +11,28 @@ import './card.css'
 const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => {
   let fetching = false
   // FIX: Refactor to remove filterChecked
-  const download = async (publicId) => {
-    fetching = true
-    const downloadHref = await downloadWallpaper(0, imgAlbum, publicId)
-    if (downloadHref) {
-      window.location.href = downloadHref
-      fetching = false
-    }
+  const download = async () => {
+    const demoUrl = 'https://res.cloudinary.com/demo/image/upload/w_700,h_700,c_fill,fl_attachment/e_style_transfer,l_sailing_angel/golden_gate.jpg'
+    const testUrl = 'https://res.cloudinary.com/dlwxbby8o/image/upload/fl_attachment/v1584398694/test/metropolis.jpg'
+    window.location.href = testUrl
+    //fetching = true
+    //const response = await downloadWallpaper()
+    //if (response) {
+      //const responseBlob = await response.blob()
+      // console.log(responseBlob)
+      // const blobUrl = await URL.createObjectURL(responseBlob)
+      // window.open(blobUrl, '_blank')
+      // URL.revokeObjectURL(blobUrl)
+      // console.log("Here is download Url: ", blobUrl)
+      //window.location.href = response.url
+      // window.open(blobUrl, '_blank');
+      // URL.revokeObjectURL(blobUrl);
+    //}
+    // const downloadHref = await downloadWallpaper()
+    // if (downloadHref) {
+    //   window.location.href = downloadHref
+    //   fetching = false
+    // }
   }
 
   const cards = images[current].map((ele, idx) => {
@@ -39,7 +54,7 @@ const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => 
             <section className="card-footer-segment">
               <Button 
                 size='mini'
-                onClick={() => download(ele)} 
+                onClick={() => download()} 
                 id="card-footer-dl-button"
                 className="card-footer-button" 
               >
