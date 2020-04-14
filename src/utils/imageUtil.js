@@ -31,14 +31,13 @@ const imageUtil = async (service, testing, target, source) => {
 
         return testarr 
      } else {
+        // Refactor serviceHandler
         const imageData = await imageServices[service](target, source)
         return imageData
      }
 }
 
 const getAttachmentUrl = async (target, source) => {
-  console.log(target)
-  console.log(source)
   try {
     const downloadImageResponse = await fetch('http://localhost:8000/api/download', {
       method: 'POST',

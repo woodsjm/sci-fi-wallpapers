@@ -41,8 +41,10 @@ class Feed extends React.Component {
     }
 
     downloadWallpaper = async (fileUrl) => {
-        const attachmentUrl = await imageUtil('getAttachmentUrl', false, 'test/miami.jpg', 'mona_lisa')
+        // FIX: Remove hard coded test
+        const attachmentUrl = await imageUtil('getAttachmentUrl', false, 'test/planets', 'mona_lisa')
         console.log(attachmentUrl)
+        window.location.href = attachmentUrl
         return attachmentUrl
     }
 
