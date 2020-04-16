@@ -64,7 +64,6 @@ const getImageData = async () => {
         })
         const dataResponse = await responseGetImageData.json();
         return dataResponse
-
     } catch (error) {
         console.error(error)
         return error
