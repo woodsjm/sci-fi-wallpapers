@@ -39,7 +39,7 @@ const imageUtil = async (service, testing, target, source) => {
 
 const getAttachmentUrl = async (target, source) => {
   try {
-    const downloadImageResponse = await fetch('http://localhost:8000/api/download', {
+    const downloadImageResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/download`, {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({source: source, target: target}),
@@ -58,7 +58,7 @@ const getAttachmentUrl = async (target, source) => {
 
 const getImageData = async () => {
     try {
-        const responseGetImageData = await fetch(`http://localhost:8000/api/images`, {
+        const responseGetImageData = await fetch(`${process.env.REACT_APP_API_URL}/api/images`, {
             credentials: 'include',
             method: 'GET'
         })

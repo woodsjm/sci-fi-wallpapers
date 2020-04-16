@@ -24,17 +24,11 @@ class DownloadModal extends React.Component {
   handleChange = (e, key) => {
     console.log(this.state.masterpieces[key].value)
     this.setState({ selectedMasterpiece: this.state.masterpieces[key].value})
-    //this.setState({[e.target.name]: e.target.value});
   }
 
   render() {
     const { closeModal, showModal} = this.props
     const baseUrl = 'https://res.cloudinary.com/dlwxbby8o/image/upload/w_auto,c_scale/v1586805907'
-    
-    // const dropdownOptions = [
-    //       {key: 1, text: "American Gothic", value: "american_gothic", onClick: () => this.handleChange(0)},
-    //       {key: 2, text: "Mona Lisa", value: "mona_lisa", onClick: () => this.handleChange(1)}
-    // ]
 
     return(
       <Modal className="modal-container" open={showModal}>

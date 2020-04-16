@@ -12,27 +12,10 @@ const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => 
   let fetching = false
   // FIX: Refactor to remove filterChecked
   const download = async () => {
+    // FIX: Remove hardcoded download
     const demoUrl = 'https://res.cloudinary.com/demo/image/upload/w_700,h_700,c_fill,fl_attachment/e_style_transfer,l_sailing_angel/golden_gate.jpg'
     const testUrl = 'https://res.cloudinary.com/dlwxbby8o/image/upload/fl_attachment/v1584398694/test/metropolis.jpg'
     window.location.href = testUrl
-    //fetching = true
-    //const response = await downloadWallpaper()
-    //if (response) {
-      //const responseBlob = await response.blob()
-      // console.log(responseBlob)
-      // const blobUrl = await URL.createObjectURL(responseBlob)
-      // window.open(blobUrl, '_blank')
-      // URL.revokeObjectURL(blobUrl)
-      // console.log("Here is download Url: ", blobUrl)
-      //window.location.href = response.url
-      // window.open(blobUrl, '_blank');
-      // URL.revokeObjectURL(blobUrl);
-    //}
-    // const downloadHref = await downloadWallpaper()
-    // if (downloadHref) {
-    //   window.location.href = downloadHref
-    //   fetching = false
-    // }
   }
 
   const cards = images[current].map((ele, idx) => {
