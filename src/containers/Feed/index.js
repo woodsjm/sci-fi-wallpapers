@@ -40,16 +40,17 @@ class Feed extends React.Component {
         }
     }
 
-    downloadWallpaper = async (fileUrl) => {
-        // FIX: Remove hard coded test
-        const attachmentUrl = await imageUtil('getAttachmentUrl', false, 'test/planets', 'mona_lisa')
+    downloadWallpaper = async (optImg1) => {
+        const { devH, devW, targetWallpaper } = this.state
+        console.log(devH)
+        const attachmentUrl = await imageUtil('getAttachmentUrl', false, targetWallpaper, optImg1, Math.floor(devH), Math.floor(devW))
         console.log(attachmentUrl)
         window.location.href = attachmentUrl
         return attachmentUrl
     }
 
     handleOptionsSubmit = async (sourceArtwork) => {
-        const response = await this.downloadWallpaper();
+        const response = await this.downloadWallpaper(sourceArtwork);
         if (response) this.closeModal()
     }
 
