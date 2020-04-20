@@ -49,9 +49,20 @@ class Feed extends React.Component {
         return attachmentUrl
     }
 
-    handleOptionsSubmit = async (sourceArtwork) => {
-        const response = await this.downloadWallpaper(sourceArtwork);
-        if (response) this.closeModal()
+    handleOptionsSubmit = async (transformations) => {
+        const { devH, devW, targetWallpaper } = this.state
+        const baseTransform = {
+            crop: 'imagga_scale',
+            effect: 'improve',
+            flags: 'attachment',
+            height: Math.floor(devH),
+            quality: 100, 
+            width: Math.floor(devW) 
+        }
+        const cloudinaryRequestOptions = {source: targetWallpaper, options: [baseTransform, ...transformations]}
+        const attachmentUrl = await imageUtil('getAttachmentUrl', false, cloudinaryRequestOptions)
+        window.location.href = attachmentUrl
+        this.closeModal()
     }
 
     closeModal = () => {

@@ -1,4 +1,4 @@
-const imageUtil = async (service, testing, target, source, devH, devW) => {
+const imageUtil = async (service, testing, cloudinaryRequestInfo) => {
      if (testing === true) {
         const testarr = [
             [
@@ -32,17 +32,17 @@ const imageUtil = async (service, testing, target, source, devH, devW) => {
         return testarr 
      } else {
         // Refactor serviceHandler
-        const imageData = await imageServices[service](target, source, devH, devW)
+        const imageData = await imageServices[service](cloudinaryRequestInfo)
         return imageData
      }
 }
 
-const getAttachmentUrl = async (target, source, devH, devW) => {
+const getAttachmentUrl = async (reqInfo) => {
   try {
     const downloadImageResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/download`, {
       method: 'POST',
       credentials: 'include',
-      body: JSON.stringify({source: source, target: target, devH: devH, devW: devW}),
+      body: JSON.stringify({source: reqInfo.source, options: reqInfo.options}),
       headers: {
         'Content-Type': 'application/json'
       }

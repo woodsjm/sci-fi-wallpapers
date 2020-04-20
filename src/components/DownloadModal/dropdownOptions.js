@@ -21,4 +21,27 @@ const colorFilters = [
   }
 ]
 
-export { colorFilters }
+const imageStyles = [
+  {
+    key: 0,
+    text: 'No style',
+    value: null
+  },
+  {
+    key: 1,
+    text: 'Cartoonify',
+    value: 'cartoonify'
+  },
+  {
+    key: 2,
+    text: 'Oil Paint',
+    value: 'oil_paint:30'
+  },
+  {
+    key: 3,
+    text: 'Colorize',
+    value: 'colorize:70'
+  }
+]
+
+export { colorFilters, imageStyles }
