@@ -29,7 +29,7 @@ class Feed extends React.Component {
     }
 
     componentDidMount = async () => {
-        const isTest = true
+        const isTest = false
         const getImagesRes = await imageUtil('getImages', isTest)
         const imageUrls = await getImagesRes
         if (imageUrls) {

@@ -10,6 +10,8 @@ import './card.css'
 
 const CardList = ({current, directlyDownload, images, imgAlbum, openModal}) => {
   let fetching = false
+  console.log(images)
+  console.log(current)
 
   const cards = images[current].map((ele, idx) => {
     // FIX: Remove unneeded variables now that cards don't flip

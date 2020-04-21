@@ -32,8 +32,13 @@ const imageUtil = async (service, testing, cloudinaryRequestInfo) => {
         return testarr 
      } else {
         // Refactor serviceHandler
-        const imageData = await imageServices[service](cloudinaryRequestInfo)
-        return imageData
+        if (cloudinaryRequestInfo) {
+          const imageData = await imageServices[service](cloudinaryRequestInfo)
+          return imageData
+        } else {
+          const imageData = await imageServices[service]()
+          return imageData
+        }
      }
 }
 
@@ -62,8 +67,8 @@ const getImageData = async () => {
             credentials: 'include',
             method: 'GET'
         })
-        const dataResponse = await responseGetImageData.json();
-        return dataResponse
+        const parsedResponse = await responseGetImageData.json();
+        return parsedResponse.data
     } catch (error) {
         console.error(error)
         return error
