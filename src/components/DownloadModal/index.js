@@ -16,30 +16,21 @@ class DownloadModal extends React.Component {
       this.state = {
         effectColorFilter: null,
         sliderColorFilter: 0,
-        effectImageStyle: null,
-        loading: false,
-        percent: 0
-
+        effectImageStyle: null
       }
       this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit = async (props) => {
-    this.setState({ loading: true})
-    const progress = setInterval(() => this.incrementProgress(), 1500)
     const transformations = await this.formatTransformations()
-    const response = await this.props.handleOptionsSubmit(transformations)
+    this.props.closeModal()
+    const response = await this.props.downloadWallpaper(transformations)
     if (response) {
-      clearInterval(progress)
-      const finish = await this.setState({ percent: 100})
-      if (finish) {
-        setTimeout(() => this.setState({ loading: false}), 500)
-      }
-      setTimeout(() => this.props.closeModal(), 500)
-    } else {
-      clearInterval(progress)
-      await this.setState({ loading: false})
-      this.props.closeModal()
+      this.setState({
+        effectColorFilter: null,
+        sliderColorFilter: 0,
+        effectImageStyle: null
+      })
     }
   }
 
@@ -59,13 +50,6 @@ class DownloadModal extends React.Component {
 
   handleDropdown = (event, data) => {
     this.setState({ [data.name]: data.value})
-  }
-
-  incrementProgress = () => {
-    console.log("hitting increment")
-    this.setState((prevState) => ({
-      percent: prevState.percent > 60 ? 80 : prevState.percent + 20,
-    }))
   }
 
   render() {
@@ -113,7 +97,6 @@ class DownloadModal extends React.Component {
                 </section>
               </Segment>
             </section>
-
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions >
@@ -124,9 +107,6 @@ class DownloadModal extends React.Component {
             Close <Icon/>
           </Button>
         </Modal.Actions>
-        <section>
-          {this.state.loading ? <Progress percent={this.state.percent} indicating /> : null}
-        </section>
       </Modal>
     )
   }

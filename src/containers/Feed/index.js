@@ -64,9 +64,11 @@ class Feed extends React.Component {
             clearInterval(progress)
             this.setState({ downloadProgress: 100})
             setTimeout(() => this.setState({ downloading: false}), 1000)
+            return true
         } else {
             clearInterval(progress)
             await this.setState({ loading: false})
+            return false
         }
     }
 
@@ -84,26 +86,7 @@ class Feed extends React.Component {
         this.setState({showModal: !this.state.showModal})
     }
 
-    // handleLoader = () => {
-    //     this.setState({ downloading: true})
-    //     const progress = setInterval(() => this.incrementProgress(), 1500)
-    //     const response = await this.props.handleOptionsSubmit(transformations)
-    //     if (response) {
-    //       clearInterval(progress)
-    //       const finish = await this.setState({ percent: 100})
-    //       if (finish) {
-    //         setTimeout(() => this.setState({ loading: false}), 500)
-    //       }
-    //       setTimeout(() => this.props.closeModal(), 500)
-    //     } else {
-    //       clearInterval(progress)
-    //       await this.setState({ loading: false})
-    //       this.props.closeModal()
-    //     }
-    // }
-
     incrementProgress = () => {
-        console.log("hitting increment")
         this.setState((prevState) => ({
           downloadProgress: prevState.downloadProgress > 60 ? 80 : prevState.downloadProgress + 20,
         }))
@@ -158,7 +141,7 @@ class Feed extends React.Component {
                             <DownloadModal
                                 className="download-modal"
                                 closeModal={this.closeModal.bind(this)}
-                                handleOptionsSubmit={this.handleOptionsSubmit.bind(this)}
+                                downloadWallpaper={this.downloadWallpaper.bind(this)}
                                 showModal={this.state.showModal} 
                                  
                             />
