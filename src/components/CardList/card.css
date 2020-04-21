@@ -29,6 +29,14 @@
   text-align: center;
 }
 
+.card-footer-container {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid green;
+
+}
+
 .card-footer {
   display: flex;
   flex-direction: row;
@@ -64,6 +72,11 @@
 
 .download-options {
   margin-top: 2em;
+}
+
+.progress-container {
+  /*z-index: 2000!important;*/
+  border: 1px solid red!important;
 }
 
 @supports not (-webkit-touch-callout: none) {

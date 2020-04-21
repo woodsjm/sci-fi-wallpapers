@@ -3,7 +3,7 @@ import { Image } from 'cloudinary-react'
 
 import { Icon } from 'react-icons-kit'
 import { download } from 'react-icons-kit/feather/'
-import { Button, Divider, Dimmer, Loader } from 'semantic-ui-react'
+import { Button, Divider, Dimmer, Loader, Progress, Segment } from 'semantic-ui-react'
 
 import './card.css'
 
@@ -26,28 +26,28 @@ const CardList = ({current, directlyDownload, images, imgAlbum, openModal}) => {
           > 
           </div>
           <Divider fitted/>
-          <section className="card-footer">
-            <section className="card-footer-segment">
-              <Button 
-                size='mini'
-                onClick={directlyDownload.bind(null, idx)} 
-                id="card-footer-dl-button"
-                className="card-footer-button" 
-              >
-                Download
-              </Button>
+            <section className="card-footer">
+              <section className="card-footer-segment">
+                <Button 
+                  size='mini'
+                  onClick={directlyDownload.bind(null, idx)} 
+                  id="card-footer-dl-button"
+                  className="card-footer-button" 
+                >
+                  Download
+                </Button>
+              </section>
+              <section className="card-footer-segment">
+                <Button 
+                  size='mini' 
+                  onClick={openModal.bind(null, idx)}
+                  id="card-footer-os-button"
+                  className="card-footer-button"  
+                >
+                  Options
+                </Button>
+              </section>
             </section>
-            <section className="card-footer-segment">
-              <Button 
-                size='mini' 
-                onClick={openModal.bind(null, idx)}
-                id="card-footer-os-button"
-                className="card-footer-button"  
-              >
-                Options
-              </Button>
-            </section>
-          </section>
         </div>
       </div>
     )
@@ -59,3 +59,6 @@ const CardList = ({current, directlyDownload, images, imgAlbum, openModal}) => {
 }
 
 export default CardList
+// <section className="progress-container">
+//   <Progress percent={10} indicating />
+// </section>

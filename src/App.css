@@ -90,6 +90,13 @@ body {
     position: absolute;
 }
 
+.footer-loader {
+  min-width: 24em!important;
+  min-height: 6%!important;
+  background: white!important;
+  margin-top: 1.25em!important;
+}
+
 .footer {
     display: flex;
     flex-direction: row;
