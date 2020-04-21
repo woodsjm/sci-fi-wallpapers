@@ -22,7 +22,9 @@ class Feed extends React.Component {
             devH: this.props.devH,
             devW: this.props.devW,
             showModal: false,
-            targetWallpaper: null
+            targetWallpaper: null,
+            downloading: false,
+            downloadProgress: 0
         }
     }
 
@@ -41,25 +43,30 @@ class Feed extends React.Component {
     }
 
     downloadWallpaper = async (transformations) => {
+        this.setState({ downloading: true})
+        const progress = setInterval(() => this.incrementProgress(), 1500)
+
         const { devH, devW, targetWallpaper } = this.state
         const baseTransform = {
-            crop: 'imagga_scale',
+            crop: 'fill',
             effect: 'improve',
             flags: 'attachment',
             height: Math.floor(devH),
-            quality: 100, 
+            quality: 80, 
             width: Math.floor(devW) 
         }
-
         const options = transformations ? [baseTransform, ...transformations] : [baseTransform]
         const cloudinaryRequestOptions = {source: targetWallpaper, options: options}
-
         const attachmentUrl = await imageUtil('getAttachmentUrl', false, cloudinaryRequestOptions)
+        
         if (attachmentUrl) {
             window.location.href = attachmentUrl
-            return true
+            clearInterval(progress)
+            this.setState({ downloadProgress: 100})
+            setTimeout(() => this.setState({ downloading: false}), 1000)
         } else {
-            return false
+            clearInterval(progress)
+            await this.setState({ loading: false})
         }
     }
 
@@ -75,6 +82,31 @@ class Feed extends React.Component {
 
     closeModal = () => {
         this.setState({showModal: !this.state.showModal})
+    }
+
+    // handleLoader = () => {
+    //     this.setState({ downloading: true})
+    //     const progress = setInterval(() => this.incrementProgress(), 1500)
+    //     const response = await this.props.handleOptionsSubmit(transformations)
+    //     if (response) {
+    //       clearInterval(progress)
+    //       const finish = await this.setState({ percent: 100})
+    //       if (finish) {
+    //         setTimeout(() => this.setState({ loading: false}), 500)
+    //       }
+    //       setTimeout(() => this.props.closeModal(), 500)
+    //     } else {
+    //       clearInterval(progress)
+    //       await this.setState({ loading: false})
+    //       this.props.closeModal()
+    //     }
+    // }
+
+    incrementProgress = () => {
+        console.log("hitting increment")
+        this.setState((prevState) => ({
+          downloadProgress: prevState.downloadProgress > 60 ? 80 : prevState.downloadProgress + 20,
+        }))
     }
 
     openModal = (id) => {
@@ -135,6 +167,8 @@ class Feed extends React.Component {
                     <Footer 
                         changePage={this.handlePagination}         
                         feedPage={current + 1}
+                        downloading={this.state.downloading}
+                        downloadProgress={this.state.downloadProgress}
                     />
             </MainLayout> 
         )
