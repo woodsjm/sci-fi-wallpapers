@@ -48,11 +48,11 @@ class Feed extends React.Component {
 
         const { devH, devW, targetWallpaper } = this.state
         const baseTransform = {
-            crop: 'fill',
+            crop: 'immaga_scale',
             effect: 'improve',
             flags: 'attachment',
             height: Math.floor(devH),
-            quality: 80, 
+            quality: 100, 
             width: Math.floor(devW) 
         }
         const options = transformations ? [baseTransform, ...transformations] : [baseTransform]
@@ -75,11 +75,6 @@ class Feed extends React.Component {
     handleDirectDownload = async (id) => {
         const setTarget = await this.setState({ targetWallpaper: this.state.images[this.state.current][id]})
         this.downloadWallpaper()
-    }
-
-    handleOptionsSubmit = async (transformations) => {
-        const downloadResponse = await this.downloadWallpaper(transformations)
-        return downloadResponse
     }
 
     closeModal = () => {
