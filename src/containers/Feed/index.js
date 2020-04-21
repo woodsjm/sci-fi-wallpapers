@@ -48,7 +48,7 @@ class Feed extends React.Component {
 
         const { devH, devW, targetWallpaper } = this.state
         const baseTransform = {
-            crop: 'immaga_scale',
+            crop: 'imagga_scale',
             effect: 'improve',
             flags: 'attachment',
             height: Math.floor(devH),
