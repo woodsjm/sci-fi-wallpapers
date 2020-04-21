@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { helpCircle, grid, home, info, user } from 'react-icons-kit/feather/'
 import { Icon } from 'react-icons-kit'
@@ -7,17 +8,18 @@ import './menu.css'
 
 
 const routes = [
-    ["Home", home], ["Profile", user],
-    ["Feed", grid], ["About", info], 
-    ["FAQ", helpCircle]
+    ["Feed", grid], 
+    ["About", info] 
 ]
 
 const Menu = ({ isVisible }) => {
     const menuItems = routes.map((route, idx) => {
         return(
-            <li key={idx} className="menu-item">
-                <Icon id="nav-icon" icon={route[1]} size='1em' />
-                {route[0]}
+            <li key={idx} className="menu-item" >
+                <Icon id="nav-icon" icon={route[1]} size='1em'/>
+                <Link to={`/${route[0].toLowerCase()}`}>
+                    {route[0]}
+                </Link>
             </li>
         )
     })

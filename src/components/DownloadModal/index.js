@@ -65,7 +65,7 @@ class DownloadModal extends React.Component {
           <Modal.Description>
             <section className="modal-description-section">
               <Segment >
-                <p>Color filters:</p>
+                <p>Color Filters:</p>
                 <section>
                   <Dropdown
                     name='effectColorFilter'

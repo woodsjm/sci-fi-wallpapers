@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Icon } from 'react-icons-kit'
 import { menu, x } from 'react-icons-kit/feather/'
@@ -16,6 +17,7 @@ const Header = () => {
             <Menu isVisible={showMenu}/>
             <div className="nav-container">
                 <div className="nav-item logo">
+                    <Link to='/feed'>
                     <div style={{
                         backgroundImage: 'url(/assets/syfy_logo_small.svg)',
                         height: '2.8em', width: '2.2em',
@@ -24,6 +26,7 @@ const Header = () => {
                         alignSelf: 'center'}}
                     >
                     </div>
+                    </Link>
                 </div>
                 <div className="nav-item heading">
                     <h3 >Feed</h3>  
