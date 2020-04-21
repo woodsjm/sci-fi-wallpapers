@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import cloudinary from 'cloudinary-core'
 import { CloudinaryContext, Image, Transformation } from 'cloudinary-react'
-import { Modal } from 'semantic-ui-react'
+import { Modal, Loader, Dimmer } from 'semantic-ui-react'
 
 import CardList from 'components/CardList'
 import DownloadModal from 'components/DownloadModal'
@@ -40,16 +40,7 @@ class Feed extends React.Component {
         }
     }
 
-    downloadWallpaper = async (optImg1) => {
-        const { devH, devW, targetWallpaper } = this.state
-        console.log(devH)
-        const attachmentUrl = await imageUtil('getAttachmentUrl', false, targetWallpaper, optImg1, Math.floor(devH), Math.floor(devW))
-        console.log(attachmentUrl)
-        window.location.href = attachmentUrl
-        return attachmentUrl
-    }
-
-    handleOptionsSubmit = async (transformations) => {
+    downloadWallpaper = async (transformations) => {
         const { devH, devW, targetWallpaper } = this.state
         const baseTransform = {
             crop: 'imagga_scale',
@@ -59,10 +50,27 @@ class Feed extends React.Component {
             quality: 100, 
             width: Math.floor(devW) 
         }
-        const cloudinaryRequestOptions = {source: targetWallpaper, options: [baseTransform, ...transformations]}
+
+        const options = transformations ? [baseTransform, ...transformations] : [baseTransform]
+        const cloudinaryRequestOptions = {source: targetWallpaper, options: options}
+
         const attachmentUrl = await imageUtil('getAttachmentUrl', false, cloudinaryRequestOptions)
-        window.location.href = attachmentUrl
-        this.closeModal()
+        if (attachmentUrl) {
+            window.location.href = attachmentUrl
+            return true
+        } else {
+            return false
+        }
+    }
+
+    handleDirectDownload = async (id) => {
+        const setTarget = await this.setState({ targetWallpaper: this.state.images[this.state.current][id]})
+        this.downloadWallpaper()
+    }
+
+    handleOptionsSubmit = async (transformations) => {
+        const downloadResponse = await this.downloadWallpaper(transformations)
+        return downloadResponse
     }
 
     closeModal = () => {
@@ -104,7 +112,7 @@ class Feed extends React.Component {
         if (images !== undefined) {
             cardList = <CardList 
                         current={current} 
-                        downloadWallpaper={this.downloadWallpaper}
+                        directlyDownload={this.handleDirectDownload}
                         openModal={this.openModal} 
                         images={images} imgAlbum={imgAlbum} 
                         />  

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { 
   Button, Header, Icon, Label, Modal, 
-  Menu, Dropdown, Divider, Segment
+  Menu, Dropdown, Divider, Progress, Segment
 } from 'semantic-ui-react'
 
 import BasicSlider from 'components/BasicSlider'
@@ -16,15 +16,31 @@ class DownloadModal extends React.Component {
       this.state = {
         effectColorFilter: null,
         sliderColorFilter: 0,
-        effectImageStyle: null
+        effectImageStyle: null,
+        loading: false,
+        percent: 0
 
       }
       this.handleChange = this.handleChange.bind(this)
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async (props) => {
+    this.setState({ loading: true})
+    const progress = setInterval(() => this.incrementProgress(), 1500)
     const transformations = await this.formatTransformations()
     const response = await this.props.handleOptionsSubmit(transformations)
+    if (response) {
+      clearInterval(progress)
+      const finish = await this.setState({ percent: 100})
+      if (finish) {
+        setTimeout(() => this.setState({ loading: false}), 500)
+      }
+      setTimeout(() => this.props.closeModal(), 500)
+    } else {
+      clearInterval(progress)
+      await this.setState({ loading: false})
+      this.props.closeModal()
+    }
   }
 
   formatTransformations = () => {
@@ -45,11 +61,19 @@ class DownloadModal extends React.Component {
     this.setState({ [data.name]: data.value})
   }
 
+  incrementProgress = () => {
+    console.log("hitting increment")
+    this.setState((prevState) => ({
+      percent: prevState.percent > 60 ? 80 : prevState.percent + 20,
+    }))
+  }
+
   render() {
+
     let filterIntensity;
     const { closeModal, showModal} = this.props
 
-    if (this.state.sliderColorFilter != null) filterIntensity = this.state.sliderColorFilter
+    if (this.state.sliderColorFilter != null) filterIntensity = this.state.sliderColorFilter 
     return(
       <Modal className="modal-container" open={showModal}>
         <Header className="modal-header">Download Options</Header>
@@ -100,6 +124,9 @@ class DownloadModal extends React.Component {
             Close <Icon/>
           </Button>
         </Modal.Actions>
+        <section>
+          {this.state.loading ? <Progress percent={this.state.percent} indicating /> : null}
+        </section>
       </Modal>
     )
   }

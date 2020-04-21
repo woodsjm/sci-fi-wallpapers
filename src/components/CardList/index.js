@@ -3,20 +3,13 @@ import { Image } from 'cloudinary-react'
 
 import { Icon } from 'react-icons-kit'
 import { download } from 'react-icons-kit/feather/'
-import { Button, Divider } from 'semantic-ui-react'
+import { Button, Divider, Dimmer, Loader } from 'semantic-ui-react'
 
 import './card.css'
 
 
-const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => {
+const CardList = ({current, directlyDownload, images, imgAlbum, openModal}) => {
   let fetching = false
-  // FIX: Refactor to remove filterChecked
-  const download = async () => {
-    // FIX: Remove hardcoded download
-    const demoUrl = 'https://res.cloudinary.com/demo/image/upload/w_700,h_700,c_fill,fl_attachment/e_style_transfer,l_sailing_angel/golden_gate.jpg'
-    const testUrl = 'https://res.cloudinary.com/dlwxbby8o/image/upload/fl_attachment/v1584398694/test/metropolis.jpg'
-    window.location.href = testUrl
-  }
 
   const cards = images[current].map((ele, idx) => {
     // FIX: Remove unneeded variables now that cards don't flip
@@ -37,7 +30,7 @@ const CardList = ({current, downloadWallpaper, images, imgAlbum, openModal}) => 
             <section className="card-footer-segment">
               <Button 
                 size='mini'
-                onClick={() => download()} 
+                onClick={directlyDownload.bind(null, idx)} 
                 id="card-footer-dl-button"
                 className="card-footer-button" 
               >
