@@ -18,7 +18,7 @@ function App({ cloudSettings }) {
     return (
         <div >
           <Switch>
-            <Route exact path='/feed' render={(props) => <Feed  {...props} devW={devW} devH={devH}imgAlbum={cloudinaryAlbum} cloudName={cloud_name}/>}/>
+            <Route exact path='/' render={(props) => <Feed  {...props} devW={devW} devH={devH}imgAlbum={cloudinaryAlbum} cloudName={cloud_name}/>}/>
             <Route exact path='/about' render={(props) => <About {...props}/>} />
             <Route exact path='/testcontainer' render={(props) => <TestContainer  {...props} />}/>
           </Switch>

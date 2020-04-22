@@ -17,7 +17,7 @@ const Header = ({ title }) => {
             <Menu isVisible={showMenu}/>
             <div className="nav-container">
                 <div className="nav-item logo">
-                    <Link to='/feed'>
+                    <Link to='/'>
                     <div style={{
                         backgroundImage: 'url(/assets/syfy_logo_small.svg)',
                         height: '2.8em', width: '2.2em',
