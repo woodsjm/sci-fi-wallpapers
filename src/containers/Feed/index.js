@@ -129,7 +129,7 @@ class Feed extends React.Component {
         }
         
         return(
-            <MainLayout>
+            <MainLayout pageName="Feed">
                     <section className="content-flex-box">
                        <section className="content-feed">
                             {cardList}

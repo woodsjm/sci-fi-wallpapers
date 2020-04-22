@@ -9,7 +9,7 @@ import './menu.css'
 
 const routes = [
     ["Feed", grid], 
-    ["About", info] 
+    ["Info", info] 
 ]
 
 const Menu = ({ isVisible }) => {

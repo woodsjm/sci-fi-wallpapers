@@ -5,12 +5,12 @@ import Header from 'components/Header'
 import Menu from 'components/Menu'
 
 
-const MainLayout = (props) => {
+const MainLayout = ({ children, pageName }) => {
     return(
        <div>
-          <Header />
+          <Header title={pageName}/>
             <div className="content-container">
-                {props.children}
+                {children}
             </div>
        </div>
     )

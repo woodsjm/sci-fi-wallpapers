@@ -8,7 +8,7 @@ import Menu from 'components/Menu'
 import './header.css'
 
 
-const Header = () => {
+const Header = ({ title }) => {
     let hamburger = menu, collapsed = x
     const [showMenu, setMenu] = useState(false) 
 
@@ -29,7 +29,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="nav-item heading">
-                    <h3 >Feed</h3>  
+                    <h3>{title}</h3>  
                 </div>
                 <div className="nav-item menu" onClick={() => setMenu(!showMenu)}>
                     <Icon 
