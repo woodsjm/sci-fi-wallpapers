@@ -15,7 +15,7 @@ function App({ cloudSettings }) {
     const cloudinaryAlbum = `https://res.cloudinary.com/${cloud_name}/image/upload`
     const devPR = window.devicePixelRatio
     const devW = window.screen.width * devPR 
-    const devH = window.screen.height * devPR     
+    const devH = window.screen.height * devPR
     return (
         <div >
           <Switch>

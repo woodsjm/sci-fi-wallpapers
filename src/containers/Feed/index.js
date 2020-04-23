@@ -48,18 +48,20 @@ class Feed extends React.Component {
         const progress = setInterval(() => this.incrementProgress(), 1500)
 
         const { devH, devW, targetWallpaper } = this.state
+        console.log(targetWallpaper)
         const baseTransform = {
-            crop: 'imagga_scale',
-            effect: 'improve',
+            crop: 'fill',
+            format: 'png',
             flags: 'attachment',
             height: Math.floor(devH),
-            quality: 100, 
+            // 100 is the quality of the img and 444 signifies no chroma subsampling
+            quality: '100:444', 
             width: Math.floor(devW) 
         }
         const options = transformations ? [baseTransform, ...transformations] : [baseTransform]
         const cloudinaryRequestOptions = {source: targetWallpaper, options: options}
         const attachmentUrl = await imageUtil('getAttachmentUrl', false, cloudinaryRequestOptions)
-        
+        console.log(attachmentUrl)
         if (attachmentUrl) {
             window.location.href = attachmentUrl
             clearInterval(progress)
