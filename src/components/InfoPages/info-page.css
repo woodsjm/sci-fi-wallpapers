@@ -1,0 +1,35 @@
+#info-page {
+    overflow: auto;
+}
+
+.info-card-text-container {
+    color: rgba(255, 255, 255, 0.9)!important;
+    font-size: 1em;
+}
+
+.info-section {
+    background: rgb(17, 17, 17)!important;
+}
+
+.info-card-title-body {
+    text-transform: lowercase;
+}
+
+.info-card-title {
+    color: rgb(27, 149, 224);
+    display: inline;
+}
+
+.info-card {
+    margin: 0 auto!important;
+    max-width: 90%!important;
+}
+
+.text-block-body {
+    display: inline;
+}
+
+.text-block-start {
+    display: inline;
+    font-weight: bold;
+}

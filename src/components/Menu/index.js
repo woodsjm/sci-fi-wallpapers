@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { grid, info} from 'react-icons-kit/feather/'
+import { grid, helpCircle, info} from 'react-icons-kit/feather/'
 import { Icon } from 'react-icons-kit'
 
 import './menu.css'
@@ -9,7 +9,8 @@ import './menu.css'
 
 const routes = [
     ["Wallpapers", '/', grid], 
-    ["Info", '/about', info] 
+    ["About", '/about', info],
+    ["FAQ", '/faq', helpCircle] 
 ]
 
 const Menu = ({ isVisible }) => {

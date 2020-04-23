@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import cloudinary from 'cloudinary-core'
 
-import About from 'components/About'
+import About from 'components/InfoPages/About'
+import FAQ from 'components/InfoPages/FAQ'
 import Feed from 'containers/Feed'
 import TestContainer from 'containers/TestContainer'
 
@@ -20,6 +21,7 @@ function App({ cloudSettings }) {
           <Switch>
             <Route exact path='/' render={(props) => <Feed  {...props} devW={devW} devH={devH}imgAlbum={cloudinaryAlbum} cloudName={cloud_name}/>}/>
             <Route exact path='/about' render={(props) => <About {...props}/>} />
+            <Route exact path='/faq' render={(props) => <FAQ {...props}/>} />
             <Route exact path='/testcontainer' render={(props) => <TestContainer  {...props} />}/>
           </Switch>
         </div>
