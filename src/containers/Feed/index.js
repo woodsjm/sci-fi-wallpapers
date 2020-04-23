@@ -48,7 +48,6 @@ class Feed extends React.Component {
         const progress = setInterval(() => this.incrementProgress(), 1500)
 
         const { devH, devW, targetWallpaper } = this.state
-        console.log(targetWallpaper)
         const baseTransform = {
             crop: 'fill',
             format: 'png',
@@ -61,7 +60,7 @@ class Feed extends React.Component {
         const options = transformations ? [baseTransform, ...transformations] : [baseTransform]
         const cloudinaryRequestOptions = {source: targetWallpaper, options: options}
         const attachmentUrl = await imageUtil('getAttachmentUrl', false, cloudinaryRequestOptions)
-        console.log(attachmentUrl)
+        
         if (attachmentUrl) {
             window.location.href = attachmentUrl
             clearInterval(progress)
