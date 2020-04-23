@@ -131,7 +131,7 @@ class Feed extends React.Component {
         }
         
         return(
-            <MainLayout pageName="Feed">
+            <MainLayout pageName="Wallpapers">
                     <section className="content-flex-box">
                        <section className="content-feed">
                             {cardList}
