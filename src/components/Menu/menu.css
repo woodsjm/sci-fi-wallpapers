@@ -50,7 +50,7 @@
 
 .menu-item-text {
   color: rgba(255, 255, 255, 0.9);
-  size: 2.5em;
+  size: 2em;
 }
 
 #nav-icon {
@@ -65,4 +65,14 @@
   .hide {
     width: 16;
   }
+}
+
+@media screen and (min-width: 501px) {
+    #menu-slideout {
+      max-width: 10em!important;
+    }
+
+    .menu-item-text {
+      font-size: 0.8em!important;
+    }
 }
