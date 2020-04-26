@@ -96,12 +96,19 @@
   }
 }
 
-
-
-@media screen and (min-width: 501px) and (orientation: portrait) {
+@media screen and (min-width: 501px) {
   .scene {
     width: 32em;
     height: 20em;
+  }
+
+  .card-footer {
+    height: 4em;
+  }
+
+  .card-footer-button {
+    height: 3em!important;
+    width: 10em!important;
   }
 }
 
@@ -114,7 +121,19 @@
 
 @media screen and (min-width: 1281px) {
   .scene {
-    width: 48em;
-    height: 30em;
+    width: 64em;
+    height: 42em;
+  }
+
+  .card-footer {
+    height: 5em;
+  }
+
+  .card-footer-button {
+    background: rgb(27, 149, 224)!important;
+    color: #F5F5F5!important;
+    height: 4em!important;
+    width: 12em!important;
+    margin: 0 auto!important;
   }
 }
