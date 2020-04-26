@@ -70,3 +70,14 @@
         max-height: 95vh!important;
   }
 }
+
+@media screen and (min-width: 501px) {
+    .modal-container {
+        margin-left: 37.5vw!important;
+        margin-right: 37.5vw!important;
+        top: 2em!important;
+        max-width: 30vw!important;
+        max-height: 20vh!important;
+
+    }
+}
