@@ -33,3 +33,18 @@
     display: inline;
     font-weight: bold;
 }
+
+@media screen and (min-width: 501px) {
+    .info-section {
+        max-width: 35vw!important;
+        margin: 0 auto!important;
+    }
+
+    .info-card-text-container {
+        font-size: 1.25em;
+    }
+    
+    .info-card-title {
+        font-size: 1.75em;
+    }
+}
