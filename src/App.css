@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .content-container {
@@ -61,7 +61,7 @@ body {
     background: rgb(30, 33, 35);
     border: 5px solid rgb(0, 0, 0);
     border-radius: 15px;
-    will-change: scroll-position;
+    /*will-change: scroll-position;*/
 }
 
 .download-modal {

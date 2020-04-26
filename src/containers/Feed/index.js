@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactDOM } from 'react'
 import cloudinary from 'cloudinary-core'
 import { CloudinaryContext, Image, Transformation } from 'cloudinary-react'
 import { Modal, Loader, Dimmer } from 'semantic-ui-react'
@@ -113,6 +113,9 @@ class Feed extends React.Component {
             this.setState(state => { 
                 return { current: newPage }
             })
+            const contentFeed = document.getElementsByClassName('content-feed')[0]
+            // Reset scrollbar to top of feed/page
+            contentFeed.scrollTo(0, 0)
         }
     }
 
