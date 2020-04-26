@@ -51,6 +51,7 @@
 .menu-item-text {
   color: rgba(255, 255, 255, 0.9);
   size: 2em;
+  font-family: 'Poppins', sans-serif;
 }
 
 #nav-icon {
