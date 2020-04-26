@@ -35,12 +35,12 @@ const imageStyles = [
   {
     key: 2,
     text: 'Oil Paint',
-    value: 'oil_paint:30'
+    value: 'oil_paint:75'
   },
   {
     key: 3,
     text: 'Colorize',
-    value: 'colorize:70'
+    value: 'colorize:50'
   }
 ]
 
