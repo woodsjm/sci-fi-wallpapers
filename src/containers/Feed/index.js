@@ -64,12 +64,15 @@ class Feed extends React.Component {
         if (attachmentUrl) {
             window.location.href = attachmentUrl
             clearInterval(progress)
-            this.setState({ downloadProgress: 100})
-            setTimeout(() => this.setState({ downloading: false}), 1000)
+            this.setState({ downloadProgress: 100 })
+            setTimeout(() => this.setState({ downloading: false }), 1000)
+            this.setState({ downloadProgress: 0 })
             return true
         } else {
             clearInterval(progress)
-            await this.setState({ loading: false})
+            setTimeout(() => this.setState({ loading: false }), 1000)
+            this.setState({ downloadProgress: 0 })
+
             return false
         }
     }
