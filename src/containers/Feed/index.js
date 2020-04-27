@@ -66,12 +66,12 @@ class Feed extends React.Component {
             clearInterval(progress)
             this.setState({ downloadProgress: 100 })
             setTimeout(() => this.setState({ downloading: false }), 1000)
-            this.setState({ downloadProgress: 0 })
+            setTimeout(() => this.setState({ downloadProgress: 0 }), 1100)
             return true
         } else {
             clearInterval(progress)
             setTimeout(() => this.setState({ loading: false }), 1000)
-            this.setState({ downloadProgress: 0 })
+            setTimeout(() => this.setState({ downloadProgress: 0 }), 1100)
 
             return false
         }
