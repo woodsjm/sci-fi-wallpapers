@@ -29,6 +29,7 @@
 
 .heading-container {
   justify-content: center;
+  min-width: 12em;
 }
 
 .nav-heading {
