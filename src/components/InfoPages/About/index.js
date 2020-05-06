@@ -16,7 +16,7 @@ const About = () => {
                             <h3 className="info-card-title info-card-title-body">roject</h3>
                         </Divider>
                         <Container className="info-card-text-container"  textAlign="justified">
-                            <p className="text-block-start">Syfywallpapers</p>
+                            <p className="text-block-start">Syfy Wallpapers</p>
                             <p className="text-block-body"> is a collection of sci-fi themed wallpapers, dynamically scaled to fit a device's display upon download.
                             </p>
                             <Segment basic textAlign="center">
