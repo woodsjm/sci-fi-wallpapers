@@ -137,7 +137,7 @@ class Feed extends React.Component {
         }
         
         return(
-            <MainLayout pageName="Wallpapers">
+            <MainLayout pageName="SyFy Wallpapers">
                     <section className="content-flex-box">
                        <section className="content-feed">
                             {cardList}

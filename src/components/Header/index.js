@@ -29,7 +29,7 @@ const Header = ({ title }) => {
                     </Link>
                 </div>
                 <div className="nav-item heading-container">
-                    <h3 className="nav-heading">{`SyFy ${title}`}</h3>  
+                    <h3 className="nav-heading">{`${title}`}</h3>  
                 </div>
                 <div className="nav-item menu" onClick={() => setMenu(!showMenu)}>
                     <Icon 
